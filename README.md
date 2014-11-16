@@ -15,5 +15,8 @@ Volatility Framework dependacies:
 https://code.google.com/p/volatility/wiki/VolatilityInstallation
 https://code.google.com/p/volatility/wiki/FullInstallation
 
+Sample memory images can be found here:
+
+https://code.google.com/p/volatility/wiki/SampleMemoryImages
 
 This module is in development. It can only process *.lime images and Volatility Plugins are hard coded for now.
