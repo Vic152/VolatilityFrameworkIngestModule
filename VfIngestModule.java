@@ -70,7 +70,7 @@ public class VfIngestModule implements FileIngestModule {
         //create the date for output file
         Date date = new Date();
         //format  
-        SimpleDateFormat format = new SimpleDateFormat(" yyyy-MM-dd kk-mm-ss");
+        SimpleDateFormat format = new SimpleDateFormat("_yyyy-MM-dd_kk-mm-ss");
         //apply format
         String dateString = format.format(date);
 
@@ -78,40 +78,60 @@ public class VfIngestModule implements FileIngestModule {
         //                    \\NetBeansProjects\\VF\\build\\cluster\\volatility-2.4\\vol.py";
         // variables for VF
         String volProfile = "--profile=LinuxEvo4GARM";
-        String volFile = "--filename=";
-        String pathToFile = af.getLocalPath();
+        String volInFile = "--filename=";
+        String volOutFile = "--output-file=";
+        String pathToImage = af.getLocalPath();
         String volPlugin = "linux_pstree";
 
-        /*
-        create new ProcessBuilder object
-        
-        doule quoutes very important for running Python from
-        command line in folders with white spces
-        "\"" +executableFile + "\""
-        
-        tets: volFilename+"\""+imageLocation+"\""
-        "\"" +executableFile+ "\""
-       
-        also: volFile+pathToFile may require "\"" volFile+pathToFile "\"" but it works
-        with my compilation every time.
-        
-        This command: python "C:\Documents and Settings\Vic\My Documents\NetBeansProjects\VF\build\cluster\volatility-2.4\vol.py" --profile=LinuxEvo4GARM --filename=C:\Documents and Settings\Vic\My Documents\Evo4GRodeo.lime linux_pstree
-        Will not wotk from command line but it works from ProcessBuilder
-        Theoreticaly this command should have double quotes around pathToFile - image file
-        
-         */
-        ProcessBuilder pb = new ProcessBuilder("python", "\"" + executableFile + "\"",
-                volProfile, volFile + pathToFile, volPlugin);
-
-        //create image name and name without extension
+        //create image name and image name without extension
         String imageName = af.getName();
+        //String imageNameWOExt = FilenameUtils.removeExtension(imageName);
         String imageNameWOExt = FilenameUtils.removeExtension(imageName);
+        //create output directory
+        String folder = imageNameWOExt;
+        Path outputDirPath = Paths.get(this.rootOutputDirPath.toAbsolutePath().toString(), folder);
+        try {
+            Files.createDirectories(outputDirPath);
+        } catch (IOException ex) {
+            Exceptions.printStackTrace(ex);
+        }
 
-        // write result to .txt file in the 
-        File result = new File(this.rootOutputDirPath.toString(), imageNameWOExt.concat(" ") + volPlugin + dateString + ".txt");
+        /*
+         create new ProcessBuilder object
+        
+         doule quoutes very important for running Python from
+         command line in folders with white spces
+         "\"" +executableFile + "\""
+        
+         tets: volFilename+"\""+imageLocation+"\""
+         "\"" +executableFile+ "\""
+       
+         also: volFile+pathToFile may require "\"" volFile+pathToFile "\"" but it works with my compilation every time.
+        
+         This command: python "C:\Documents and Settings\Vic\My Documents\NetBeansProjects\VF\build\cluster\volatility-2.4\vol.py" --profile=LinuxEvo4GARM --filename=C:\Documents and Settings\Vic\My Documents\Evo4GRodeo.lime linux_pstree
+         Will not wotk from command line but it works from ProcessBuilder
+         Theoreticaly this command should have double quotes around pathToFile - image file
+        
+         In this ProcessBuilder the following values are passed to Volatility Framework:
+        
+         "python " - to invoke python interpreter
+         executableFile - to find path to vol.py must be surrunded with "\""executableFile"\"" to build path that python can read - workaround white spaces in directories names
+         volProfile - profile of the memory image that VF analysis in this job
+         volInFile - Volatility prameter to indicate location of image to analyse
+         pathToImage - path to memory image
+         volOutFile - Volatility parameter to indicate location of output directory
+         ouputDirPath - path to output directory
+         imageNameWOExt - name of memory image with out extension
+         dateString - string with date and time      
+         */
+        
+        ProcessBuilder pb = new ProcessBuilder("python", "\"" + executableFile + "\"",
+                volProfile, volInFile + pathToImage, volOutFile + outputDirPath + "\\" + imageNameWOExt + "_" + volPlugin + dateString + ".txt", volPlugin);
 
+        // write error logfile to .txt file in the 
+        File log = new File(outputDirPath.toString(), "VFprocessErrorLog_" + volPlugin + ".txt");
         pb.redirectErrorStream(true);
-        pb.redirectOutput(ProcessBuilder.Redirect.appendTo(result));
+        pb.redirectOutput(ProcessBuilder.Redirect.appendTo(log));
 
         //write a log file
         String localAbs = af.getLocalAbsPath();
@@ -119,22 +139,43 @@ public class VfIngestModule implements FileIngestModule {
         String parent = af.getParentPath();
 
         //log file for curremt run
-        File log = new File(this.rootOutputDirPath.toString(), "LogFileForThisRun.txt");
+        File logCurrent = new File(this.rootOutputDirPath.toString(), "LogFileForThisRun.txt");
+        File logAll = new File(this.rootOutputDirPath.toString(), "LogFileAll.txt");
 
-        try {
-            try (PrintWriter write = new PrintWriter(log)) {
-                write.println("LOCAL ABS " + localAbs);
-                write.println("LOCAL " + local);
-                write.println("PARENT DIR " + parent);
-                write.println("EXECUTABLE FILE LOCATION " + executableFile);
-                write.println("PROCESS BUILDER COMMAND STRING " + pb.command());
-                write.println("IMAGE NAME " + imageName);
-                write.println("NO EXTENSION NAME " + imageNameWOExt);
-            }
+        try (PrintWriter write = new PrintWriter(logCurrent)) {
+            write.println("LOCAL ABS " + localAbs);
+            write.println("LOCAL " + local);
+            write.println("PARENT DIR " + parent);
+            write.println("EXECUTABLE FILE LOCATION " + executableFile);
+            write.println("PROCESS BUILDER COMMAND STRING " + pb.command());
+            write.println("IMAGE NAME " + imageName);
+            write.println("NO EXTENSION NAME " + imageNameWOExt);
+            write.println("OUTPUT PATH " + outputDirPath.toString());
+
         } catch (FileNotFoundException ex) {
             Exceptions.printStackTrace(ex);
         }
+        try {
+            FileWriter writeFile = new FileWriter(logAll, true);
+            BufferedWriter bufferWrite = new BufferedWriter(writeFile);
+            try (PrintWriter print = new PrintWriter(bufferWrite)) {
+                print.println("LOCAL ABS " + localAbs);
+                print.println("LOCAL " + local);
+                print.println("PARENT DIR " + parent);
+                print.println("EXECUTABLE FILE LOCATION " + executableFile);
+                print.println("PROCESS BUILDER COMMAND STRING " + pb.command());
+                print.println("IMAGE NAME " + imageName);
+                print.println("NO EXTENSION NAME " + imageNameWOExt);
+                print.println(outputDirPath.toString());
+                print.println("\n\n");
+            }
+        } catch (FileNotFoundException ex) {
+            Exceptions.printStackTrace(ex);
+        } catch (IOException ex) {
+            Exceptions.printStackTrace(ex);
+        }
 
+        //run porocess
         try {
             Process p = pb.start();
             // p.waitFor();
@@ -143,13 +184,6 @@ public class VfIngestModule implements FileIngestModule {
         }
 
         return IngestModule.ProcessResult.OK;
-        /*  try {
-             VfProcess.runVf();
-             
-         } catch (IOException ex) {
-             Exceptions.printStackTrace(ex);
-         }
-         */
 
     }
 
