@@ -41,10 +41,10 @@ public class VfModuleSettingsPanel  extends IngestModuleIngestJobSettingsPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         selectOs = new javax.swing.JComboBox();
         jLabel1 = new javax.swing.JLabel();
+        configurePlugins = new javax.swing.JButton();
 
         setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -60,6 +60,8 @@ public class VfModuleSettingsPanel  extends IngestModuleIngestJobSettingsPanel {
 
         org.openide.awt.Mnemonics.setLocalizedText(jLabel1, org.openide.util.NbBundle.getMessage(VfModuleSettingsPanel.class, "VfModuleSettingsPanel.jLabel1.text")); // NOI18N
 
+        org.openide.awt.Mnemonics.setLocalizedText(configurePlugins, org.openide.util.NbBundle.getMessage(VfModuleSettingsPanel.class, "VfModuleSettingsPanel.configurePlugins.text")); // NOI18N
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -68,7 +70,10 @@ public class VfModuleSettingsPanel  extends IngestModuleIngestJobSettingsPanel {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(selectOs, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 232, Short.MAX_VALUE))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 232, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(configurePlugins)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -78,7 +83,9 @@ public class VfModuleSettingsPanel  extends IngestModuleIngestJobSettingsPanel {
                 .addComponent(jLabel1)
                 .addGap(12, 12, 12)
                 .addComponent(selectOs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                .addComponent(configurePlugins)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -100,12 +107,12 @@ public class VfModuleSettingsPanel  extends IngestModuleIngestJobSettingsPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void selectOsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectOsActionPerformed
-        settings.setOpSystem(selectOs.getSelectedItem().toString());// TODO add your handling code here:
+        settings.setOpSystem(selectOs.getSelectedItem().toString());
     }//GEN-LAST:event_selectOsActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JButton configurePlugins;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JComboBox selectOs;

@@ -14,23 +14,13 @@ import org.sleuthkit.autopsy.ingest.IngestModuleIngestJobSettings;
 public class VfModuleSettings implements IngestModuleIngestJobSettings {
 
     private static final long serialVersionUID = 1L;
-    private boolean isAndroid = false;
-    private boolean isLinux = false;
-    private boolean isWindows = false;
-    private boolean isMac = false;
     private String opSystem;
     
 
     public VfModuleSettings() {
     }
     
-    public VfModuleSettings(boolean isAndroid, boolean isLinux, boolean isWindows, boolean isMac) {
-        this.isWindows = isWindows;
-        this.isMac = isMac;
-        this.isAndroid = isAndroid;
-        this.isLinux = isLinux;
-    }
-
+   
     @Override
     public long getVersionNumber() {
         return serialVersionUID;
@@ -45,36 +35,5 @@ public class VfModuleSettings implements IngestModuleIngestJobSettings {
         return opSystem;
     }
 
-    void setIsAndroid(boolean enabled) {
-        isAndroid = enabled;
-    }
-
-    boolean isAndroid() {
-        return isAndroid;
-    }
-    
-    void setIsLinux(boolean enabled) {
-        isLinux = enabled;
-    }
-
-    boolean isLinux() {
-        return isLinux;
-    }
-    
-    void setIsWindows(boolean enabled) {
-        isWindows = enabled;
-    }
-
-    boolean isWindows() {
-        return isWindows;
-    }
-    
-    void setIsMac(boolean enabled) {
-        isMac = enabled;
-    }
-
-    boolean isMac() {
-        return isMac;
-    }
-
+   
 }
