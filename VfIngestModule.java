@@ -18,6 +18,7 @@ import org.openide.modules.InstalledFileLocator;
 import org.openide.util.Exceptions;
 import org.openide.util.NbBundle;
 import org.sleuthkit.autopsy.casemodule.Case;
+import org.sleuthkit.autopsy.coreutils.ExecUtil;
 import org.sleuthkit.autopsy.coreutils.Logger;
 import org.sleuthkit.autopsy.ingest.FileIngestModule;
 import org.sleuthkit.autopsy.ingest.IngestJobContext;
@@ -38,6 +39,7 @@ public class VfIngestModule  implements FileIngestModule {
     private static final Logger logger = Logger.getLogger(VfIngestModule.class.getName());
     private static final IngestModuleReferenceCounter refCounter = new IngestModuleReferenceCounter();
     private final VfModuleSettings settings;
+    private long jobId;
 
     VfIngestModule(VfModuleSettings settings) {
         this.settings = settings;
@@ -54,9 +56,11 @@ public class VfIngestModule  implements FileIngestModule {
         executableFile = locateExecutable(execName.toString());
 
         this.rootOutputDirPath = VfIngestModule.createModuleOutputDirectoryForCase();
+        jobId = context.getJobId();
 
         //testing line
         System.out.print("\nROOT OUTPUT DIR PATH " + this.rootOutputDirPath.toString());
+      
     }
 
     @Override
@@ -159,11 +163,8 @@ public class VfIngestModule  implements FileIngestModule {
             write.println("PROCESS BUILDER COMMAND STRING " + pb.command());
             write.println("IMAGE NAME " + imageName);
             write.println("NO EXTENSION NAME " + imageNameWOExt);
-            write.println("OUTPUT PATH " + outputDirPath.toString());
-            write.println("IS ANDROID "+ settings.isAndroid());
-            write.println("IS LINUX "+ settings.isLinux());
-            write.println("IS WINDOWS "+ settings.isWindows());
-            write.println("IS MAC OS "+ settings.isMac());
+            write.println("OUTPUT PATH " + outputDirPath.toString());           
+            write.println("OPERATING SYSTEM TO ANALYZE  "+settings.opSystem());
 
         } catch (FileNotFoundException ex) {
             Exceptions.printStackTrace(ex);
@@ -181,11 +182,7 @@ public class VfIngestModule  implements FileIngestModule {
                 print.println("IMAGE NAME " + imageName);
                 print.println("NO EXTENSION NAME " + imageNameWOExt);
                 print.println(outputDirPath.toString());
-                print.println("IS ANDROID "+ settings.isAndroid());
-                print.println("IS LINUX "+ settings.isLinux());
-                print.println("IS WINDOWS "+ settings.isWindows());
-                print.println("IS MAC OS "+ settings.isMac());
-                
+                print.println("OPERATING SYSTEM TO ANALYZE  "+settings.opSystem());
                 print.println("\n\n");
             }
         } catch (FileNotFoundException ex) {
@@ -195,6 +192,10 @@ public class VfIngestModule  implements FileIngestModule {
         }
 
         //run porocess
+        
+        
+        
+        
         try {
             Process p = pb.start();
             // p.waitFor();
@@ -214,7 +215,8 @@ public class VfIngestModule  implements FileIngestModule {
 
     @Override
     public void shutDown() {
-
+            
+  
     }
 
     public static File locateExecutable(String executableToFindName) throws IngestModule.IngestModuleException {

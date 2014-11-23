@@ -19,19 +19,16 @@ public class VfModuleSettingsPanel  extends IngestModuleIngestJobSettingsPanel {
     VfModuleSettingsPanel(VfModuleSettings settings) {
          this.settings = settings;
          initComponents();
-         customizeComponents(settings);
+         customizeComponents();
     }
     
-    private void customizeComponents(VfModuleSettings settings) {
-         
-        isAndroidRadioButton.setSelected(settings.isAndroid());
-        isLinuxRadioButton.setSelected(settings.isLinux());
-        isWindowsRadioButton.setSelected(settings.isWindows());
-        isMacRadioButton.setSelected(settings.isMac());
+    private void customizeComponents() {
+        
     }
 
     @Override
     public IngestModuleIngestJobSettings getSettings() {
+        
         return settings;
     }
 
@@ -46,46 +43,22 @@ public class VfModuleSettingsPanel  extends IngestModuleIngestJobSettingsPanel {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
-        isMacRadioButton = new javax.swing.JRadioButton();
-        isWindowsRadioButton = new javax.swing.JRadioButton();
-        isLinuxRadioButton = new javax.swing.JRadioButton();
-        isAndroidRadioButton = new javax.swing.JRadioButton();
+        selectOs = new javax.swing.JComboBox();
+        jLabel1 = new javax.swing.JLabel();
 
         setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(org.openide.util.NbBundle.getMessage(VfModuleSettingsPanel.class, "VfModuleSettingsPanel.jPanel1.border.title_1"))); // NOI18N
 
-        buttonGroup1.add(isMacRadioButton);
-        org.openide.awt.Mnemonics.setLocalizedText(isMacRadioButton, org.openide.util.NbBundle.getMessage(VfModuleSettingsPanel.class, "VfModuleSettingsPanel.isMacRadioButton.text")); // NOI18N
-        isMacRadioButton.addActionListener(new java.awt.event.ActionListener() {
+        selectOs.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Android", "Linux", "Windows", "MacOS" }));
+        selectOs.setBorder(null);
+        selectOs.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                isMacRadioButtonActionPerformed(evt);
+                selectOsActionPerformed(evt);
             }
         });
 
-        buttonGroup1.add(isWindowsRadioButton);
-        org.openide.awt.Mnemonics.setLocalizedText(isWindowsRadioButton, org.openide.util.NbBundle.getMessage(VfModuleSettingsPanel.class, "VfModuleSettingsPanel.isWindowsRadioButton.text")); // NOI18N
-        isWindowsRadioButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                isWindowsRadioButtonActionPerformed(evt);
-            }
-        });
-
-        buttonGroup1.add(isLinuxRadioButton);
-        org.openide.awt.Mnemonics.setLocalizedText(isLinuxRadioButton, org.openide.util.NbBundle.getMessage(VfModuleSettingsPanel.class, "VfModuleSettingsPanel.isLinuxRadioButton.text")); // NOI18N
-        isLinuxRadioButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                isLinuxRadioButtonActionPerformed(evt);
-            }
-        });
-
-        buttonGroup1.add(isAndroidRadioButton);
-        org.openide.awt.Mnemonics.setLocalizedText(isAndroidRadioButton, org.openide.util.NbBundle.getMessage(VfModuleSettingsPanel.class, "VfModuleSettingsPanel.isAndroidRadioButton.text")); // NOI18N
-        isAndroidRadioButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                isAndroidRadioButtonActionPerformed(evt);
-            }
-        });
+        org.openide.awt.Mnemonics.setLocalizedText(jLabel1, org.openide.util.NbBundle.getMessage(VfModuleSettingsPanel.class, "VfModuleSettingsPanel.jLabel1.text")); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -94,24 +67,18 @@ public class VfModuleSettingsPanel  extends IngestModuleIngestJobSettingsPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(isMacRadioButton)
-                    .addComponent(isWindowsRadioButton)
-                    .addComponent(isLinuxRadioButton)
-                    .addComponent(isAndroidRadioButton))
+                    .addComponent(selectOs, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 232, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(isAndroidRadioButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(isLinuxRadioButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(isWindowsRadioButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(isMacRadioButton)
-                .addContainerGap())
+                .addComponent(jLabel1)
+                .addGap(12, 12, 12)
+                .addComponent(selectOs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -120,42 +87,28 @@ public class VfModuleSettingsPanel  extends IngestModuleIngestJobSettingsPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void isAndroidRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_isAndroidRadioButtonActionPerformed
-        settings.setIsAndroid(isAndroidRadioButton.isSelected());
-    }//GEN-LAST:event_isAndroidRadioButtonActionPerformed
-
-    private void isLinuxRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_isLinuxRadioButtonActionPerformed
-        settings.setIsLinux(isLinuxRadioButton.isSelected());
-    }//GEN-LAST:event_isLinuxRadioButtonActionPerformed
-
-    private void isWindowsRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_isWindowsRadioButtonActionPerformed
-        settings.setIsWindows(isWindowsRadioButton.isSelected());
-    }//GEN-LAST:event_isWindowsRadioButtonActionPerformed
-
-    private void isMacRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_isMacRadioButtonActionPerformed
-        settings.setIsMac(isMacRadioButton.isSelected());
-    }//GEN-LAST:event_isMacRadioButtonActionPerformed
+    private void selectOsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectOsActionPerformed
+        settings.setOpSystem(selectOs.getSelectedItem().toString());// TODO add your handling code here:
+    }//GEN-LAST:event_selectOsActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JRadioButton isAndroidRadioButton;
-    private javax.swing.JRadioButton isLinuxRadioButton;
-    private javax.swing.JRadioButton isMacRadioButton;
-    private javax.swing.JRadioButton isWindowsRadioButton;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JComboBox selectOs;
     // End of variables declaration//GEN-END:variables
 
    

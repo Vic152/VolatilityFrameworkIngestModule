@@ -18,14 +18,31 @@ public class VfModuleSettings implements IngestModuleIngestJobSettings {
     private boolean isLinux = false;
     private boolean isWindows = false;
     private boolean isMac = false;
+    private String opSystem;
     
 
     public VfModuleSettings() {
+    }
+    
+    public VfModuleSettings(boolean isAndroid, boolean isLinux, boolean isWindows, boolean isMac) {
+        this.isWindows = isWindows;
+        this.isMac = isMac;
+        this.isAndroid = isAndroid;
+        this.isLinux = isLinux;
     }
 
     @Override
     public long getVersionNumber() {
         return serialVersionUID;
+    }
+    
+    void setOpSystem(String os){
+        
+        opSystem = os;
+    }
+    
+    String opSystem(){
+        return opSystem;
     }
 
     void setIsAndroid(boolean enabled) {
