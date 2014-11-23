@@ -25,8 +25,9 @@ import org.sleuthkit.autopsy.ingest.IngestModule;
 import org.sleuthkit.datamodel.AbstractFile;
 import org.sleuthkit.autopsy.coreutils.PlatformUtil;
 import org.sleuthkit.autopsy.ingest.IngestModuleReferenceCounter;
+import org.sleuthkit.datamodel.TskCoreException;
 
-public class VfIngestModule implements FileIngestModule {
+public class VfIngestModule  implements FileIngestModule {
 
     //declare variables
     private IngestJobContext context = null;
@@ -36,19 +37,26 @@ public class VfIngestModule implements FileIngestModule {
     private Path rootOutputDirPath;
     private static final Logger logger = Logger.getLogger(VfIngestModule.class.getName());
     private static final IngestModuleReferenceCounter refCounter = new IngestModuleReferenceCounter();
+    private final VfModuleSettings settings;
+
+    VfIngestModule(VfModuleSettings settings) {
+        this.settings = settings;
+    }
+    
+    
 
     @Override
     public void startUp(IngestJobContext context) throws IngestModuleException {
         this.context = context;
 
-        //locate vol.py in releas folder
+        //locate vol.py in release folder
         Path execName = Paths.get(VOLATILITY_DIRECTORY, VOLATILITY_EXECUTABLE);
         executableFile = locateExecutable(execName.toString());
 
         this.rootOutputDirPath = VfIngestModule.createModuleOutputDirectoryForCase();
 
         //testing line
-        //System.out.print("\nROOT OUTPUT DIR PATH " + this.rootOutputDirPath.toString());
+        System.out.print("\nROOT OUTPUT DIR PATH " + this.rootOutputDirPath.toString());
     }
 
     @Override
@@ -81,7 +89,7 @@ public class VfIngestModule implements FileIngestModule {
         String volInFile = "--filename=";
         String volOutFile = "--output-file=";
         String pathToImage = af.getLocalPath();
-        String volPlugin = "linux_pstree";
+        String volPlugin = "linux_route_cache";
 
         //create image name and image name without extension
         String imageName = af.getName();
@@ -143,6 +151,7 @@ public class VfIngestModule implements FileIngestModule {
         File logAll = new File(this.rootOutputDirPath.toString(), "LogFileAll.txt");
 
         try (PrintWriter write = new PrintWriter(logCurrent)) {
+            write.println("TIME "+ dateString);
             write.println("LOCAL ABS " + localAbs);
             write.println("LOCAL " + local);
             write.println("PARENT DIR " + parent);
@@ -151,6 +160,10 @@ public class VfIngestModule implements FileIngestModule {
             write.println("IMAGE NAME " + imageName);
             write.println("NO EXTENSION NAME " + imageNameWOExt);
             write.println("OUTPUT PATH " + outputDirPath.toString());
+            write.println("IS ANDROID "+ settings.isAndroid());
+            write.println("IS LINUX "+ settings.isLinux());
+            write.println("IS WINDOWS "+ settings.isWindows());
+            write.println("IS MAC OS "+ settings.isMac());
 
         } catch (FileNotFoundException ex) {
             Exceptions.printStackTrace(ex);
@@ -159,6 +172,7 @@ public class VfIngestModule implements FileIngestModule {
             FileWriter writeFile = new FileWriter(logAll, true);
             BufferedWriter bufferWrite = new BufferedWriter(writeFile);
             try (PrintWriter print = new PrintWriter(bufferWrite)) {
+                print.println("TIME "+ dateString);
                 print.println("LOCAL ABS " + localAbs);
                 print.println("LOCAL " + local);
                 print.println("PARENT DIR " + parent);
@@ -167,6 +181,11 @@ public class VfIngestModule implements FileIngestModule {
                 print.println("IMAGE NAME " + imageName);
                 print.println("NO EXTENSION NAME " + imageNameWOExt);
                 print.println(outputDirPath.toString());
+                print.println("IS ANDROID "+ settings.isAndroid());
+                print.println("IS LINUX "+ settings.isLinux());
+                print.println("IS WINDOWS "+ settings.isWindows());
+                print.println("IS MAC OS "+ settings.isMac());
+                
                 print.println("\n\n");
             }
         } catch (FileNotFoundException ex) {
@@ -180,6 +199,12 @@ public class VfIngestModule implements FileIngestModule {
             Process p = pb.start();
             // p.waitFor();
         } catch (IOException ex) {
+            Exceptions.printStackTrace(ex);
+        }
+        
+        try {
+            Case.getCurrentCase().addReport(outputDirPath.toString()+"\\"+ imageNameWOExt+"_" + volPlugin + dateString + ".txt", VfIngestFactoryAdapter.getModuleName(), imageName+volPlugin);
+        } catch (TskCoreException ex) {
             Exceptions.printStackTrace(ex);
         }
 
@@ -210,7 +235,7 @@ public class VfIngestModule implements FileIngestModule {
         return exeFile;
     }
 
-    /**
+    /*
      * Creates the output directory for this module for the current case, if it
      * does not already exist.
      *
@@ -218,7 +243,7 @@ public class VfIngestModule implements FileIngestModule {
      * @throws org.sleuthkit.autopsy.ingest.IngestModule.IngestModuleException
      */
     synchronized static Path createModuleOutputDirectoryForCase() throws IngestModule.IngestModuleException {
-        Path path = Paths.get(Case.getCurrentCase().getModulesOutputDirAbsPath(), VfIngestFatoryAdapter.getModuleName());
+        Path path = Paths.get(Case.getCurrentCase().getModulesOutputDirAbsPath(), VfIngestFactoryAdapter.getModuleName());
         try {
             Files.createDirectory(path);
         } catch (FileAlreadyExistsException ex) {
