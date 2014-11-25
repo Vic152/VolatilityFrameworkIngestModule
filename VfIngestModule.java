@@ -18,7 +18,6 @@ import org.openide.modules.InstalledFileLocator;
 import org.openide.util.Exceptions;
 import org.openide.util.NbBundle;
 import org.sleuthkit.autopsy.casemodule.Case;
-import org.sleuthkit.autopsy.coreutils.ExecUtil;
 import org.sleuthkit.autopsy.coreutils.Logger;
 import org.sleuthkit.autopsy.ingest.FileIngestModule;
 import org.sleuthkit.autopsy.ingest.IngestJobContext;
@@ -89,7 +88,7 @@ public class VfIngestModule  implements FileIngestModule {
         //String volPath = "C:\\Documents and Settings\\Vic\\My Documents
         //                    \\NetBeansProjects\\VF\\build\\cluster\\volatility-2.4\\vol.py";
         // variables for VF
-        String volProfile = "--profile=LinuxEvo4GARM";
+        String volProfile = "--profile="+settings.volProfile();
         String volInFile = "--filename=";
         String volOutFile = "--output-file=";
         String pathToImage = af.getLocalPath();
@@ -165,6 +164,7 @@ public class VfIngestModule  implements FileIngestModule {
             write.println("NO EXTENSION NAME " + imageNameWOExt);
             write.println("OUTPUT PATH " + outputDirPath.toString());           
             write.println("OPERATING SYSTEM TO ANALYZE  "+settings.opSystem());
+            write.println("VOLATILITY PROFILE "+settings.volProfile());
 
         } catch (FileNotFoundException ex) {
             Exceptions.printStackTrace(ex);
@@ -183,6 +183,7 @@ public class VfIngestModule  implements FileIngestModule {
                 print.println("NO EXTENSION NAME " + imageNameWOExt);
                 print.println(outputDirPath.toString());
                 print.println("OPERATING SYSTEM TO ANALYZE  "+settings.opSystem());
+                print.println("VOLATILITY PROFILE "+settings.volProfile());
                 print.println("\n\n");
             }
         } catch (FileNotFoundException ex) {

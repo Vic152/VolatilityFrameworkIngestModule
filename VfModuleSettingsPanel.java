@@ -5,6 +5,7 @@
  */
 package org.myproject.vf;
 
+import javax.swing.JOptionPane;
 import org.sleuthkit.autopsy.ingest.IngestModuleIngestJobSettings;
 import org.sleuthkit.autopsy.ingest.IngestModuleIngestJobSettingsPanel;
 
@@ -12,23 +13,23 @@ import org.sleuthkit.autopsy.ingest.IngestModuleIngestJobSettingsPanel;
  *
  * @author stone
  */
-public class VfModuleSettingsPanel  extends IngestModuleIngestJobSettingsPanel {
+public class VfModuleSettingsPanel extends IngestModuleIngestJobSettingsPanel {
 
     private final VfModuleSettings settings;
-    
+
     VfModuleSettingsPanel(VfModuleSettings settings) {
-         this.settings = settings;
-         initComponents();
-         customizeComponents();
+        this.settings = settings;
+        initComponents();
+        customizeComponents();
     }
-    
+
     private void customizeComponents() {
-        
+
     }
 
     @Override
     public IngestModuleIngestJobSettings getSettings() {
-        
+
         return settings;
     }
 
@@ -61,6 +62,11 @@ public class VfModuleSettingsPanel  extends IngestModuleIngestJobSettingsPanel {
         org.openide.awt.Mnemonics.setLocalizedText(jLabel1, org.openide.util.NbBundle.getMessage(VfModuleSettingsPanel.class, "VfModuleSettingsPanel.jLabel1.text")); // NOI18N
 
         org.openide.awt.Mnemonics.setLocalizedText(configurePlugins, org.openide.util.NbBundle.getMessage(VfModuleSettingsPanel.class, "VfModuleSettingsPanel.configurePlugins.text")); // NOI18N
+        configurePlugins.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                configurePluginsActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -110,6 +116,26 @@ public class VfModuleSettingsPanel  extends IngestModuleIngestJobSettingsPanel {
         settings.setOpSystem(selectOs.getSelectedItem().toString());
     }//GEN-LAST:event_selectOsActionPerformed
 
+    private void configurePluginsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_configurePluginsActionPerformed
+
+        //initial state operating system may not be selected
+        if (settings.opSystem() == null) {
+
+            JOptionPane.showMessageDialog(null, "No operating sytem selected for analysis."
+                    + "\nOperating system must be selected to initialize valid plugins");
+        } //open window with Android plugins
+        else if ("Android".equals(settings.opSystem())) {
+
+            AndroidPluginSetup aps = new AndroidPluginSetup();
+
+            aps.setVisible(true);
+
+            settings.setVolProfile(aps.volProfile);
+
+    }//GEN-LAST:event_configurePluginsActionPerformed
+
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton configurePlugins;
@@ -118,5 +144,4 @@ public class VfModuleSettingsPanel  extends IngestModuleIngestJobSettingsPanel {
     private javax.swing.JComboBox selectOs;
     // End of variables declaration//GEN-END:variables
 
-   
 }

@@ -15,10 +15,11 @@ public class VfModuleSettings implements IngestModuleIngestJobSettings {
 
     private static final long serialVersionUID = 1L;
     private String opSystem;
+    private String volProfile;
     
 
     public VfModuleSettings() {
-    }
+    } 
     
    
     @Override
@@ -35,5 +36,14 @@ public class VfModuleSettings implements IngestModuleIngestJobSettings {
         return opSystem;
     }
 
+    
+    void setVolProfile(String vp){
+        
+        volProfile = vp;
+    }
+    
+    String volProfile(){
+        return volProfile;
+    }
    
 }

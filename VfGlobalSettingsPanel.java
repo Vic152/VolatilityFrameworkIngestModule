@@ -48,6 +48,10 @@ public class VfGlobalSettingsPanel extends IngestModuleGlobalSettingsPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
 
+    
+    
+    
+    
     @Override
     public void saveSettings() {
         
