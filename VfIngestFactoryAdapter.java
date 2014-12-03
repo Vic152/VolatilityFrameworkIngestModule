@@ -60,17 +60,17 @@ public class VfIngestFactoryAdapter extends IngestModuleFactoryAdapter {
         return new VfModuleSettingsPanel((VfModuleSettings) settings);
     }
 
-    @Override
+    /*@Override
     public boolean hasGlobalSettingsPanel() {
-        return true;
-    }
+    return true;
+    }*/
 
-    @Override
+    /*@Override
     public IngestModuleGlobalSettingsPanel getGlobalSettingsPanel() {
-        VfGlobalSettingsPanel globalOptionsPanel = new VfGlobalSettingsPanel();
-
-        return globalOptionsPanel;
-    }
+    VfGlobalSettingsPanel globalOptionsPanel = new VfGlobalSettingsPanel();
+    
+    return globalOptionsPanel;
+    }*/
 
     @Override
     public boolean isFileIngestModuleFactory() {

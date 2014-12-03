@@ -5,17 +5,21 @@
  */
 package org.myproject.vf;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author stone
  */
-public class AndroidPluginSetup extends javax.swing.JDialog{
+public class AndroidPluginSetup extends javax.swing.JDialog {
 
-    
     //variables for dialog to store user choice
     String volProfile;
-  
-    
+    ArrayList plugins = new ArrayList();
+
+    /**
+     * Creates new form AndroidPluginSetup
+     */
     /**
      * Creates new form AndroidPluginSetup
      */
@@ -23,11 +27,10 @@ public class AndroidPluginSetup extends javax.swing.JDialog{
         super(parent, modal);
         initComponents();
     }
-    
-    public AndroidPluginSetup(){
+
+    public AndroidPluginSetup() {
         initComponents();
     }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -41,8 +44,8 @@ public class AndroidPluginSetup extends javax.swing.JDialog{
         saveAndroidSettingsButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jCheckBox2 = new javax.swing.JCheckBox();
+        pstree = new javax.swing.JCheckBox();
+        pslist = new javax.swing.JCheckBox();
         androidVolProfile = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -61,9 +64,21 @@ public class AndroidPluginSetup extends javax.swing.JDialog{
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(org.openide.util.NbBundle.getMessage(AndroidPluginSetup.class, "AndroidPluginSetup.jPanel1.border.title"))); // NOI18N
 
-        org.openide.awt.Mnemonics.setLocalizedText(jCheckBox1, org.openide.util.NbBundle.getMessage(AndroidPluginSetup.class, "AndroidPluginSetup.jCheckBox1.text")); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(pstree, org.openide.util.NbBundle.getMessage(AndroidPluginSetup.class, "AndroidPluginSetup.text")); // NOI18N
+        pstree.setToolTipText(org.openide.util.NbBundle.getMessage(AndroidPluginSetup.class, "AndroidPluginSetup.toolTipText")); // NOI18N
+        pstree.setName(""); // NOI18N
+        pstree.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pstreeActionPerformed(evt);
+            }
+        });
 
-        org.openide.awt.Mnemonics.setLocalizedText(jCheckBox2, org.openide.util.NbBundle.getMessage(AndroidPluginSetup.class, "AndroidPluginSetup.jCheckBox2.text")); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(pslist, org.openide.util.NbBundle.getMessage(AndroidPluginSetup.class, "AndroidPluginSetup.pslist.text")); // NOI18N
+        pslist.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pslistActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -72,17 +87,17 @@ public class AndroidPluginSetup extends javax.swing.JDialog{
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jCheckBox1)
-                    .addComponent(jCheckBox2))
+                    .addComponent(pstree)
+                    .addComponent(pslist))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jCheckBox1)
+                .addComponent(pstree)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jCheckBox2)
+                .addComponent(pslist)
                 .addContainerGap(124, Short.MAX_VALUE))
         );
 
@@ -127,11 +142,32 @@ public class AndroidPluginSetup extends javax.swing.JDialog{
 
     private void saveAndroidSettingsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveAndroidSettingsButtonActionPerformed
         // TODO add your handling code here:
-       volProfile = androidVolProfile.getText();
-        
-      
+
+        //Set Volatility Profile
+        volProfile = androidVolProfile.getText();
+
         AndroidPluginSetup.this.dispose();
     }//GEN-LAST:event_saveAndroidSettingsButtonActionPerformed
+
+    //Set Volatility Plugins list
+    private void pstreeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pstreeActionPerformed
+        // TODO add your handling code here:
+        if (pstree.isSelected()) {
+
+            plugins.add("linux_pstree");
+            
+            System.out.println("PLUGIN SETUP "+plugins.toString());
+        }
+    }//GEN-LAST:event_pstreeActionPerformed
+
+    private void pslistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pslistActionPerformed
+        // TODO add your handling code here:
+        if (pslist.isSelected()) {
+
+            plugins.add("linux_pslist");
+            System.out.println("PLUGIN SETUP "+plugins.toString());
+        }
+    }//GEN-LAST:event_pslistActionPerformed
 
     /**
      * @param args the command line arguments
@@ -177,10 +213,10 @@ public class AndroidPluginSetup extends javax.swing.JDialog{
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField androidVolProfile;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JCheckBox pslist;
+    private javax.swing.JCheckBox pstree;
     private javax.swing.JButton saveAndroidSettingsButton;
     // End of variables declaration//GEN-END:variables
 }

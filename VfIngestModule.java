@@ -88,11 +88,13 @@ public class VfIngestModule  implements FileIngestModule {
         //String volPath = "C:\\Documents and Settings\\Vic\\My Documents
         //                    \\NetBeansProjects\\VF\\build\\cluster\\volatility-2.4\\vol.py";
         // variables for VF
-        String volProfile = "--profile="+settings.volProfile();
+        String volProfile = "--profile="+settings.getVolProfile();
         String volInFile = "--filename=";
         String volOutFile = "--output-file=";
         String pathToImage = af.getLocalPath();
-        String volPlugin = "linux_route_cache";
+        String volPlugin = settings.getVolPlugins().get(0).toString();
+        
+        System.out.println("VOL PLUGIN "+volPlugin);
 
         //create image name and image name without extension
         String imageName = af.getName();
@@ -164,7 +166,8 @@ public class VfIngestModule  implements FileIngestModule {
             write.println("NO EXTENSION NAME " + imageNameWOExt);
             write.println("OUTPUT PATH " + outputDirPath.toString());           
             write.println("OPERATING SYSTEM TO ANALYZE  "+settings.opSystem());
-            write.println("VOLATILITY PROFILE "+settings.volProfile());
+            write.println("VOLATILITY PROFILE "+settings.getVolProfile());
+            write.println("ARRAY LIST OF PLUGINS: "+settings.getVolPlugins().toString());
 
         } catch (FileNotFoundException ex) {
             Exceptions.printStackTrace(ex);
@@ -183,7 +186,8 @@ public class VfIngestModule  implements FileIngestModule {
                 print.println("NO EXTENSION NAME " + imageNameWOExt);
                 print.println(outputDirPath.toString());
                 print.println("OPERATING SYSTEM TO ANALYZE  "+settings.opSystem());
-                print.println("VOLATILITY PROFILE "+settings.volProfile());
+                print.println("VOLATILITY PROFILE "+settings.getVolProfile());
+                print.println("ARRAY LIST OF PLUGINS: "+settings.getVolPlugins().toString());
                 print.println("\n\n");
             }
         } catch (FileNotFoundException ex) {
@@ -194,7 +198,7 @@ public class VfIngestModule  implements FileIngestModule {
 
         //run porocess
         
-        
+       // int exitValue = ExecUtil.execute(pb, new FileIngestModuleProcessTerminator(this.context));
         
         
         try {
@@ -204,6 +208,8 @@ public class VfIngestModule  implements FileIngestModule {
             Exceptions.printStackTrace(ex);
         }
         
+        
+        //Produce the report in Autopsy
         try {
             Case.getCurrentCase().addReport(outputDirPath.toString()+"\\"+ imageNameWOExt+"_" + volPlugin + dateString + ".txt", VfIngestFactoryAdapter.getModuleName(), imageName+volPlugin);
         } catch (TskCoreException ex) {

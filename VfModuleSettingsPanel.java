@@ -129,9 +129,13 @@ public class VfModuleSettingsPanel extends IngestModuleIngestJobSettingsPanel {
             AndroidPluginSetup aps = new AndroidPluginSetup();
 
             aps.setVisible(true);
-
+            
+               //Set Volatility Framework profile
             settings.setVolProfile(aps.volProfile);
 
+            //Set Plugins
+            settings.setVolPlugins(aps.plugins);
+            System.out.println("SETTINGS PANEL "+aps.plugins.toString());
     }//GEN-LAST:event_configurePluginsActionPerformed
 
     }
