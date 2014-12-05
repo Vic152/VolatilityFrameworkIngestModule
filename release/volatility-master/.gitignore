@@ -1,8 +1,5 @@
 *.py[cod]
 
-# Pycharm ide library
-.idea
-
 *.swp
 
 # C extensions

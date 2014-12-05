@@ -30,8 +30,6 @@ import volatility.debug as debug
 import volatility.plugins.linux.common as linux_common
 import volatility.plugins.linux.pslist as linux_pslist
 import volatility.plugins.linux.dump_map as linux_dump_map
-from volatility.renderers import TreeGrid
-from volatility.renderers.basic import Address
 
 class linux_elfs(linux_pslist.linux_pslist):
     """Find ELF binaries in process mappings"""
@@ -44,18 +42,16 @@ class linux_elfs(linux_pslist.linux_pslist):
             for elf, elf_start, elf_end, soname, needed in task.elfs():
                 yield task, elf, elf_start, elf_end, soname, needed
     
-    def unified_output(self, data):
-        return TreeGrid([("Pid", int),
-                       ("Name", str),
-                       ("Start", Address),
-                       ("End", Address),
-                       ("Path", str),
-                       ("Needed", str)],
-                        self.generator(data))
-
-    def generator(self, data):
+    def render_text(self, outfd, data):
+        self.table_header(outfd, [("Pid", "8"),
+                                  ("Name", "17"),
+                                  ("Start", "[addrpad]"),
+                                  ("End", "[addrpad]"),
+                                  ("Elf Path", "60"),
+                                  ("Needed", "")
+                                ])
         for task, elf, start, end, soname, needed in data:
-            yield (0, [int(task.pid), str(task.comm), Address(start), Address(end), str(soname), ",".join(needed)])
+            self.table_row(outfd, task.pid, task.comm, start, end, soname, ",".join(needed))           
  
 
 

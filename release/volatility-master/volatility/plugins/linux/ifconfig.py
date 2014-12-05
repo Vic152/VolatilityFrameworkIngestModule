@@ -27,7 +27,6 @@
 import volatility.plugins.linux.common as linux_common
 import volatility.debug as debug
 import volatility.obj as obj
-from volatility.renderers import TreeGrid
 
 class linux_ifconfig(linux_common.AbstractLinuxCommand):
     """Gathers active interfaces"""
@@ -79,14 +78,13 @@ class linux_ifconfig(linux_common.AbstractLinuxCommand):
             for (name, ip_addr, mac_addr, promisc) in self._gather_net_dev_info(net_dev):
                 yield (name, ip_addr, mac_addr, promisc) 
         
-    def unified_output(self, data):
-        return TreeGrid([("Interface", str),
-                       ("IP", str),
-                       ("MAC", str),
-                       ("Promiscuous", str)],
-                        self.generator(data))
+    def render_text(self, outfd, data):
 
-    def generator(self, data):
+        self.table_header(outfd, [("Interface", "16"),
+                                  ("IP Address", "20"),
+                                  ("MAC Address", "18"),
+                                  ("Promiscous Mode", "5")])
+
         for (name, ip_addr, mac_addr, promisc) in data:
-            yield (0, [str(name), str(ip_addr), str(mac_addr), str(promisc)])
+            self.table_row(outfd, name, ip_addr, mac_addr, promisc)
 

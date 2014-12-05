@@ -36,7 +36,6 @@ class WindowsCrashDumpSpace32(addrspace.AbstractRunBasedMemory):
     dumpsig = 'PAGEDUMP'
     headertype = "_DMP_HEADER"
     headerpages = 1
-    _long_struct = struct.Struct("=I")
 
     def __init__(self, base, config, **kwargs):
         ## We must have an AS below us
@@ -72,7 +71,7 @@ class WindowsCrashDumpSpace32(addrspace.AbstractRunBasedMemory):
         string = self.read(addr, 4)
         if not string:
             return obj.NoneObject("Could not read data at " + str(addr))
-        longval, = self._long_struct.unpack(string)
+        (longval,) = struct.unpack('=I', string)
         return longval
 
     def get_available_addresses(self):

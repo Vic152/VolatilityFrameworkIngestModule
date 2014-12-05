@@ -26,8 +26,6 @@ import volatility.win32.network as network
 import volatility.cache as cache
 import volatility.utils as utils
 import volatility.debug as debug
-from volatility.renderers import TreeGrid
-from volatility.renderers.basic import Address
 
 class Connections(common.AbstractWindowsCommand):
     """
@@ -52,15 +50,15 @@ class Connections(common.AbstractWindowsCommand):
         return (profile.metadata.get('os', 'unknown') == 'windows' and
                 profile.metadata.get('major', 0) == 5)
 
-    def unified_output(self, data):
+    def render_text(self, outfd, data):
         offsettype = "(V)" if not self._config.PHYSICAL_OFFSET else "(P)"
-        return TreeGrid([("Offset{0}".format(offsettype), Address),
-                       ("LocalAddress", str),
-                       ("RemoteAddress", str),
-                       ("PID", int)],
-                        self.generator(data))
+        self.table_header(outfd,
+                          [("Offset{0}".format(offsettype), "[addrpad]"),
+                           ("Local Address", "25"),
+                           ("Remote Address", "25"),
+                           ("Pid", "")
+                           ])
 
-    def generator(self, data):
         for conn in data:
             if not self._config.PHYSICAL_OFFSET:
                 offset = conn.obj_offset
@@ -68,8 +66,7 @@ class Connections(common.AbstractWindowsCommand):
                 offset = conn.obj_vm.vtop(conn.obj_offset)
             local = "{0}:{1}".format(conn.LocalIpAddress, conn.LocalPort)
             remote = "{0}:{1}".format(conn.RemoteIpAddress, conn.RemotePort)
-            yield (0, [Address(offset), str(local), str(remote), int(conn.Pid)])
-
+            self.table_row(outfd, offset, local, remote, conn.Pid)
 
     @cache.CacheDecorator("tests/connections")
     def calculate(self):

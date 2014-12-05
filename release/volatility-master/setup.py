@@ -59,7 +59,6 @@ opts['license'] = "GPL"
 opts['scripts'] = ["vol.py"]
 opts['packages'] = ["volatility",
                     "volatility.win32",
-                    "volatility.renderers",
                     "volatility.plugins",
                     "volatility.plugins.addrspaces",
                     "volatility.plugins.overlays",

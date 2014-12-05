@@ -32,7 +32,6 @@ class ArmAddressSpace(paged.AbstractWritablePagedMemory):
     checkname = 'ArmValidAS'
     minimum_size = 0x1000
     alignment_gcd = 0x1000
-    _long_struct = struct.Struct("<I")
 
     def read_long_phys(self, addr):
         '''
@@ -45,7 +44,7 @@ class ArmAddressSpace(paged.AbstractWritablePagedMemory):
             string = None
         if not string:
             return obj.NoneObject("Could not read_long_phys at offset " + hex(addr))
-        longval, = self._long_struct.unpack(string)
+        (longval,) = struct.unpack('<I', string)
         return longval
 
     def page_table_present(self, entry):

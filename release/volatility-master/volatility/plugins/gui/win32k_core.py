@@ -40,8 +40,6 @@ class _MM_SESSION_SPACE(obj.CType):
         one session.
         """
         for p in self.ProcessList.list_of_type("_EPROCESS", "SessionProcessLinks"):
-            if not p.is_valid():
-                break
             yield p
 
     @property
@@ -464,9 +462,9 @@ class tagDESKTOP(tagWINDOWSTATION):
         wins = []
         cur = win
         while cur.is_valid() and cur.v() != 0:
-            if cur.obj_offset in seen:
+            if cur in seen:
                 break
-            seen.add(cur.obj_offset)
+            seen.add(cur)
             wins.append(cur)
             cur = cur.spwndNext.dereference()
         while wins:
@@ -477,11 +475,8 @@ class tagDESKTOP(tagWINDOWSTATION):
             yield cur, level
 
             if cur.spwndChild.is_valid() and cur.spwndChild.v() != 0:
-                for xwin, xlevel in self.windows(cur.spwndChild, filter = filter, level = level + 1):
-                    if xwin.obj_offset in seen:
-                        break
-                    yield xwin, xlevel
-                    seen.add(xwin.obj_offset)
+                for info in self.windows(cur.spwndChild, filter = filter, level = level + 1):
+                    yield info
 
     def heaps(self):
         """Generator for the desktop heaps"""

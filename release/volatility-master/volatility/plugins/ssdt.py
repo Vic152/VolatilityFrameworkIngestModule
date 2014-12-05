@@ -34,8 +34,6 @@ import volatility.utils as utils
 import volatility.plugins.malware.apihooks as apihooks
 import volatility.debug as debug #pylint: disable-msg=W0611
 from volatility.cache import CacheDecorator
-from volatility.renderers import TreeGrid
-from volatility.renderers.basic import Address
 
 #pylint: disable-msg=C0111
 
@@ -177,30 +175,7 @@ class SSDT(common.AbstractWindowsCommand):
         for idx, table, n, vm in sorted(tables_with_vm, key = itemgetter(0)):
             yield idx, table, n, vm, mods, mod_addrs
 
-    def unified_output(self, data):
-        if not self._config.VERBOSE:
-            return TreeGrid([("Table", str),
-                       ("TableOffset", Address),
-                       ("NumEntries", int),
-                       ("Entry", Address),
-                       ("Addr", Address),
-                       ("Function", str),
-                       ("Owner", str)],
-                        self.generator(data))
-        else:
-            return TreeGrid([("Table", str),
-                       ("TableOffset", Address),
-                       ("NumEntries", int),
-                       ("Entry", Address),
-                       ("Addr", Address),
-                       ("Function", str),
-                       ("Owner", str),
-                       ("Destination", Address),
-                       ("HookName", str)],
-                        self.generator(data))
-
-
-    def generator(self, data):
+    def render_text(self, outfd, data):
 
         addr_space = utils.load_as(self._config)
         syscalls = addr_space.profile.syscalls
@@ -208,9 +183,7 @@ class SSDT(common.AbstractWindowsCommand):
 
         # Print out the entries for each table
         for idx, table, n, vm, mods, mod_addrs in data:
-            table_name = "SSDT[{0}]".format(idx)
-            table_offset = Address(table)
-            num_entries = int(n)
+            outfd.write("SSDT[{0}] at {1:x} with {2} entries\n".format(idx, table, n))
             for i in range(n):
                 if bits32:
                     # These are absolute function addresses in kernel memory. 
@@ -232,9 +205,10 @@ class SSDT(common.AbstractWindowsCommand):
                 else:
                     syscall_modname = "UNKNOWN"
 
-                if not self._config.VERBOSE:
-                    yield (0, [table_name, table_offset, num_entries, Address(idx * 0x1000 + i), 
-                            Address(syscall_addr), str(syscall_name), str(syscall_modname)])
+                outfd.write("  Entry {0:#06x}: {1:#x} ({2}) owned by {3}\n".format(idx * 0x1000 + i,
+                                                                   syscall_addr,
+                                                                   syscall_name,
+                                                                   syscall_modname))
 
                 ## check for inline hooks if in --verbose mode, we're analyzing
                 ## an x86 model system and the sycall_mod is available 
@@ -248,16 +222,10 @@ class SSDT(common.AbstractWindowsCommand):
                                                 mem_end = syscall_mod.DllBase + syscall_mod.SizeOfImage)
                         ## could not analyze the memory
                         if ret == None:
-                            yield (0, [table_name, table_offset, num_entries, Address(idx * 0x1000 + i), 
-                                    Address(syscall_addr), str(syscall_name), str(syscall_modname), 
-                                    Address(0), "NotInline"])
                             continue 
                         (hooked, data, dest_addr) = ret
                         ## the function isn't hooked
                         if not hooked:
-                            yield (0, [table_name, table_offset, num_entries, Address(idx * 0x1000 + i), 
-                                    Address(syscall_addr), str(syscall_name), str(syscall_modname), 
-                                    Address(0), "NotInline"])
                             continue 
                         ## we found a hook, try to resolve the hooker. no mask required because
                         ## we currently only work on x86 anyway
@@ -267,7 +235,5 @@ class SSDT(common.AbstractWindowsCommand):
                         else:
                             hook_name = "UNKNOWN"
                         ## report it now 
-                        yield (0, [table_name, table_offset, num_entries, Address(idx * 0x1000 + i), 
-                                Address(syscall_addr), str(syscall_name), str(syscall_modname),
-                                Address(dest_addr), str(hook_name)])
+                        outfd.write("  ** INLINE HOOK? => {0:#x} ({1})\n".format(dest_addr, hook_name))
 

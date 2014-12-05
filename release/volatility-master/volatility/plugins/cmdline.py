@@ -18,22 +18,16 @@
 #
 
 import volatility.plugins.taskmods as taskmods
-from volatility.renderers import TreeGrid
 
 class Cmdline(taskmods.DllList):
     """Display process command-line arguments"""
 
-    def unified_output(self, data):
-        # blank header in case there is no shimcache data
-        return TreeGrid([("Process", str),
-                       ("PID", int),
-                       ("CommandLine", str),
-                       ], self.generator(data))
-
-    def generator(self, data):
+    def render_text(self, outfd, data):
         for task in data:
-            cmdline = ""
-            if task.Peb:
-                cmdline = "{0}".format(str(task.Peb.ProcessParameters.CommandLine or '')).strip()
-            yield (0, [str(task.ImageFileName), int(task.UniqueProcessId), str(cmdline)])
+            pid = task.UniqueProcessId
 
+            outfd.write("*" * 72 + "\n")
+            outfd.write("{0} pid: {1:6}\n".format(task.ImageFileName, pid))
+
+            if task.Peb:
+                outfd.write("Command line : {0}\n".format(str(task.Peb.ProcessParameters.CommandLine or '')))

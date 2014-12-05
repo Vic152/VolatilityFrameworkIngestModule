@@ -22,8 +22,6 @@ import volatility.win32.tasks as tasks
 import volatility.obj as obj
 import volatility.debug as debug
 import volatility.poolscan as poolscan
-from volatility.renderers import TreeGrid
-from volatility.renderers.basic import Address
 
 #--------------------------------------------------------------------------------
 # Profile Modifications 
@@ -131,32 +129,26 @@ class PoolTracker(common.AbstractWindowsCommand):
                 continue
             outfd.write("{0} - {1} - {2}\n".format(entry.Key, driver, reason))
 
-    def unified_output(self, data):
-        return TreeGrid([("Tag", str),
-                       ("NpAllocs", int),
-                       ("NpFrees", int),
-                       ("NpBytes", int),
-                       ("PgAllocs", int),
-                       ("PgFrees", int),
-                       ("PgBytes", int),
-                       ("Driver", str),
-                       ("Reason", str)],
-                        self.generator(data))
+    def render_text(self, outfd, data):
+        
+        self.table_header(outfd, [("Tag", "6"), 
+                                  ("NpAllocs", "8"), 
+                                  ("NpFrees", "8"), 
+                                  ("NpBytes", "8"), 
+                                  ("PgAllocs", "8"), 
+                                  ("PgFrees", "8"), 
+                                  ("PgBytes", "8"), 
+                                  ("Driver", "20"), 
+                                  ("Reason", "")])
 
-    def generator(self, data):
         for entry, driver, reason in data:
             if str(entry.Key) == "":
                 continue
 
-            yield (0, [str(entry.Key), 
-                int(entry.NonPagedAllocs),
-                int(entry.NonPagedFrees), 
-                int(entry.NonPagedBytes), 
-                int(entry.PagedAllocs),
-                int(entry.PagedFrees),
-                int(entry.PagedBytes),
-                str(driver), 
-                str(reason)])
+            self.table_row(outfd, entry.Key, entry.NonPagedAllocs, 
+                entry.NonPagedFrees, entry.NonPagedBytes, entry.PagedAllocs, 
+                entry.PagedFrees, entry.PagedBytes, 
+                driver, reason)
 
 #--------------------------------------------------------------------------------
 # Configurable PoolScanner Plugin

@@ -30,7 +30,6 @@ import volatility.utils as utils
 import volatility.obj as obj
 import volatility.plugins.common as common
 import volatility.addrspace as addrspace
-from volatility.renderers import TreeGrid
 
 
 # Windows XP types taken from RegRipper auditpol plugin
@@ -183,7 +182,6 @@ auditpol_type_win7 = {
     } ],
 }
 
-# this are not used, but left here since they are more descriptive
 class AuditPolDataXP(obj.CType):
     def __str__(self):
         audit = "Disabled"
@@ -331,11 +329,6 @@ class Auditpol(common.AbstractWindowsCommand):
     def is_valid_profile(profile):
         return profile.metadata.get('os', 'unknown').lower() == 'windows'
 
-    def get_yield(self, ap):
-        for k in ap.members.keys():
-            yield (0, ["{0}".format(k), "{0}".format(ap.m(k))])
-
-
     def calculate(self):
         addr_space = utils.load_as(self._config)
         regapi = registryapi.RegistryApi(self._config)
@@ -356,25 +349,9 @@ class Auditpol(common.AbstractWindowsCommand):
 
             yield data_raw, ap
 
-    def unified_output(self, data):
-        return TreeGrid([("Item", str),
-                       ("Detail", str)],
-                        self.generator(data))
-
-    def generator(self, data):
-        first = True
+    def render_text(self, outfd, data):
         for data_raw, ap in data:
-            if first and hasattr(ap, "Enabled"):
-                first = False
-                audit = "Disabled"
-                if int(ap.Enabled) != 0:
-                    audit = "Enabled"
-                yield (0, ["GeneralAuditing", audit])
-            for k in ap.members.keys():
-                if k != "Enabled":
-                    yield (0, ["{0}".format(k), "{0}".format(ap.m(k))])
-
             if self._config.HEX:
-                # for now, not sure how to handle hexdump data
                 raw = "\n".join(["{0:010x}: {1:<48}  {2}".format(o, h, ''.join(c)) for o, h, c in utils.Hexdump(data_raw)])
-                print raw
+                outfd.write(raw + "\n\n")
+            outfd.write("{0}\n".format(str(ap)))

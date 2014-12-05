@@ -29,8 +29,6 @@ import volatility.obj as obj
 import volatility.debug as debug
 import volatility.plugins.linux.common as linux_common
 import volatility.plugins.linux.lsmod  as linux_lsmod
-from volatility.renderers import TreeGrid
-from volatility.renderers.basic import Address
 
 
 ### TODO: merge with check_fops
@@ -299,16 +297,15 @@ class linux_check_inline_kernel(linux_common.AbstractLinuxCommand):
             for (sym_name, member, hook_type, sym_addr) in func(modules):
                 yield (sym_name, member, hook_type, sym_addr)
 
-    def unified_output(self, data):
-        return TreeGrid([("Name", str),
-                       ("Member", int),
-                       ("HookType", str),
-                       ("HookAddress", Address)],
-                        self.generator(data))
+    def render_text(self, outfd, data):
 
-    def generator(self, data):
+        self.table_header(outfd, [("Name", "48"),
+                                  ("Member", "16"),
+                                  ("Hook Type", "8"),
+                                  ("Hook Address", "[addrpad]")])
+
         for (sym_name, member, hook_type, sym_addr) in data:
-            yield (0, [str(sym_name), str(member), str(hook_type), Address(sym_addr)])
+            self.table_row(outfd, sym_name, member, hook_type, sym_addr)
 
 
 

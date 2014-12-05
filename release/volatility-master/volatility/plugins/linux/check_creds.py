@@ -28,7 +28,6 @@ import volatility.obj as obj
 import volatility.debug as debug
 import volatility.plugins.linux.common as linux_common
 import volatility.plugins.linux.pslist as linux_pslist
-from volatility.renderers import TreeGrid
 
 class linux_check_creds(linux_pslist.linux_pslist):
     """Checks if any processes are sharing credential structures"""
@@ -54,14 +53,13 @@ class linux_check_creds(linux_pslist.linux_pslist):
     
         yield creds
             
-    def unified_output(self, data):
-        return TreeGrid([("PIDs", str)],
-                        self.generator(data))
-
-    def generator(self, data):
+    def render_text(self, outfd, data):
+    
+        self.table_header(outfd, [("PIDs", "8")]) 
+                    
         # print out processes that are sharing cred structures              
         for htable in data:
-            
+    
             for (addr, pids) in htable.items():
 
                 if len(pids) > 1:
@@ -70,5 +68,8 @@ class linux_check_creds(linux_pslist.linux_pslist):
                         pid_str = pid_str + "{0:d}, ".format(pid)
                     pid_str = pid_str[:-2]
 
-                    yield(0, [str(pid_str)])
+                    self.table_row(outfd, pid_str)
+
+
+
 

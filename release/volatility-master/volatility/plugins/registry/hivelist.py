@@ -31,8 +31,6 @@ import volatility.plugins.registry.hivescan as hs
 import volatility.obj as obj
 import volatility.utils as utils
 import volatility.cache as cache
-from volatility.renderers import TreeGrid
-from volatility.renderers.basic import Address
 
 class HiveList(hs.HiveScan):
     """Print list of registry hives.
@@ -51,23 +49,23 @@ class HiveList(hs.HiveScan):
     meta_info['os'] = 'WIN_32_XP_SP2'
     meta_info['version'] = '1.0'
 
-    def unified_output(self, data):
-        return TreeGrid([("Virtual", Address),
-                       ("Physical", Address),
-                       ("Name", str)],
-                        self.generator(data))
+    def render_text(self, outfd, result):
 
-    def generator(self, data):
+        self.table_header(outfd, [('Virtual', '[addrpad]'),
+                                  ('Physical', '[addrpad]'),
+                                  ('Name', ''),
+                                  ])
+
         hive_offsets = []
 
-        for hive in data:
+        for hive in result:
             if hive.Hive.Signature == 0xbee0bee0 and hive.obj_offset not in hive_offsets:
                 try:
                     name = str(hive.FileFullPath or '') or str(hive.FileUserName or '') or str(hive.HiveRootPath or '') or "[no name]"
                 except AttributeError:
                     name = "[no name]"
                 # Spec of 10 rather than 8 width, since the # puts 0x at the start, which is included in the width
-                yield (0, [Address(hive.obj_offset), Address(hive.obj_vm.vtop(hive.obj_offset)), str(name)])
+                self.table_row(outfd, hive.obj_offset, hive.obj_vm.vtop(hive.obj_offset), name)
                 hive_offsets.append(hive.obj_offset)
 
     @cache.CacheDecorator("tests/hivelist")
