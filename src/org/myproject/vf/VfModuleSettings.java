@@ -5,6 +5,7 @@
  */
 package org.myproject.vf;
 
+import java.util.ArrayList;
 import org.sleuthkit.autopsy.ingest.IngestModuleIngestJobSettings;
 
 /**
@@ -16,7 +17,7 @@ public class VfModuleSettings implements IngestModuleIngestJobSettings {
     private static final long serialVersionUID = 1L;
     private String opSystem;
     private String volProfile;
-    
+    private ArrayList volPlugins = new ArrayList();    
 
     public VfModuleSettings() {
     } 
@@ -42,8 +43,19 @@ public class VfModuleSettings implements IngestModuleIngestJobSettings {
         volProfile = vp;
     }
     
-    String volProfile(){
+     String getVolProfile(){
         return volProfile;
     }
+    
+    void setVolPlugins(ArrayList plugins){
+        
+        volPlugins = plugins;
+    }
+    
+    ArrayList getVolPlugins(){
+        
+        return volPlugins;
+    }
+   
    
 }

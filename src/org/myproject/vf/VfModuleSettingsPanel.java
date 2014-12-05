@@ -134,7 +134,8 @@ public class VfModuleSettingsPanel extends IngestModuleIngestJobSettingsPanel {
             settings.setVolProfile(aps.volProfile);
 
             //Set Plugins
-            settings.
+            settings.setVolPlugins(aps.plugins);
+            System.out.println("SETTINGS PANEL "+aps.plugins.toString());
     }//GEN-LAST:event_configurePluginsActionPerformed
 
     }

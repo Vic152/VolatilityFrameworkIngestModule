@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+AutoUpdate-Show-In-Client: true
+OpenIDE-Module: org.myproject.vf
+OpenIDE-Module-Localizing-Bundle: org/myproject/vf/Bundle.properties
+OpenIDE-Module-Specification-Version: 1.0
+
