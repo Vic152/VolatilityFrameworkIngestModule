@@ -143,7 +143,7 @@ public class VfIngestModule implements FileIngestModule {
             System.out.println("VOL PLUGIN " + volPlugin + i);
 
             ProcessBuilder pb = new ProcessBuilder("python", "\"" + executableFile + "\"",
-                    volProfile, volInFile + pathToImage, volOutFile + outputDirPath + "\\" + imageNameWOExt + "_" + volPlugin + dateString + ".rtf", volPlugin);
+                    volProfile, volInFile + pathToImage, volOutFile + outputDirPath + "\\" + imageNameWOExt + "_" + volPlugin + dateString + ".txt", volPlugin);
 
             // write error logfile to .txt file in the 
             File log = new File(outputDirPath.toString(), "VFprocessErrorLog_" + volPlugin + ".txt");
@@ -212,7 +212,7 @@ public class VfIngestModule implements FileIngestModule {
 
             //Produce the report in Autopsy
             try {
-                Case.getCurrentCase().addReport(outputDirPath.toString() + "\\" + imageNameWOExt + "_" + volPlugin + dateString + ".rtf", VfIngestFactoryAdapter.getModuleName(), volPlugin + " run on " + imageName);
+                Case.getCurrentCase().addReport(outputDirPath.toString() + "\\" + imageNameWOExt + "_" + volPlugin + dateString + ".txt", VfIngestFactoryAdapter.getModuleName(), volPlugin + " run on " + imageName);
             } catch (TskCoreException ex) {
                 Exceptions.printStackTrace(ex);
             }
