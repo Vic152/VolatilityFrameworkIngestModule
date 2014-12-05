@@ -27,11 +27,11 @@ import org.sleuthkit.autopsy.coreutils.PlatformUtil;
 import org.sleuthkit.autopsy.ingest.IngestModuleReferenceCounter;
 import org.sleuthkit.datamodel.TskCoreException;
 
-public class VfIngestModule  implements FileIngestModule {
+public class VfIngestModule implements FileIngestModule {
 
     //declare variables
     private IngestJobContext context = null;
-    private static final String VOLATILITY_DIRECTORY = "volatility-2.4";
+    private static final String VOLATILITY_DIRECTORY = "volatility-master";
     private static final String VOLATILITY_EXECUTABLE = "vol.py";
     private File executableFile;
     private Path rootOutputDirPath;
@@ -43,8 +43,6 @@ public class VfIngestModule  implements FileIngestModule {
     VfIngestModule(VfModuleSettings settings) {
         this.settings = settings;
     }
-    
-    
 
     @Override
     public void startUp(IngestJobContext context) throws IngestModuleException {
@@ -59,7 +57,7 @@ public class VfIngestModule  implements FileIngestModule {
 
         //testing line
         System.out.print("\nROOT OUTPUT DIR PATH " + this.rootOutputDirPath.toString());
-      
+
     }
 
     @Override
@@ -88,13 +86,10 @@ public class VfIngestModule  implements FileIngestModule {
         //String volPath = "C:\\Documents and Settings\\Vic\\My Documents
         //                    \\NetBeansProjects\\VF\\build\\cluster\\volatility-2.4\\vol.py";
         // variables for VF
-        String volProfile = "--profile="+settings.getVolProfile();
+        String volProfile = "--profile=" + settings.getVolProfile();
         String volInFile = "--filename=";
         String volOutFile = "--output-file=";
         String pathToImage = af.getLocalPath();
-        String volPlugin = settings.getVolPlugins().get(0).toString();
-        
-        System.out.println("VOL PLUGIN "+volPlugin);
 
         //create image name and image name without extension
         String imageName = af.getName();
@@ -137,93 +132,100 @@ public class VfIngestModule  implements FileIngestModule {
          imageNameWOExt - name of memory image with out extension
          dateString - string with date and time      
          */
-        
-        ProcessBuilder pb = new ProcessBuilder("python", "\"" + executableFile + "\"",
-                volProfile, volInFile + pathToImage, volOutFile + outputDirPath + "\\" + imageNameWOExt + "_" + volPlugin + dateString + ".txt", volPlugin);
+        //get the number of plugins to run
+        int numberOfPlugins = settings.getVolPlugins().size();
 
-        // write error logfile to .txt file in the 
-        File log = new File(outputDirPath.toString(), "VFprocessErrorLog_" + volPlugin + ".txt");
-        pb.redirectErrorStream(true);
-        pb.redirectOutput(ProcessBuilder.Redirect.appendTo(log));
+        //for loop to run all the selected plugins
+        for (int i = 0; i < numberOfPlugins; i++) {
 
-        //write a log file
-        String localAbs = af.getLocalAbsPath();
-        String local = af.getLocalPath();
-        String parent = af.getParentPath();
+        //get current plugin to run
+            String volPlugin = settings.getVolPlugins().get(i).toString();
+            System.out.println("VOL PLUGIN " + volPlugin + i);
 
-        //log file for curremt run
-        File logCurrent = new File(this.rootOutputDirPath.toString(), "LogFileForThisRun.txt");
-        File logAll = new File(this.rootOutputDirPath.toString(), "LogFileAll.txt");
+            ProcessBuilder pb = new ProcessBuilder("python", "\"" + executableFile + "\"",
+                    volProfile, volInFile + pathToImage, volOutFile + outputDirPath + "\\" + imageNameWOExt + "_" + volPlugin + dateString + ".rtf", volPlugin);
 
-        try (PrintWriter write = new PrintWriter(logCurrent)) {
-            write.println("TIME "+ dateString);
-            write.println("LOCAL ABS " + localAbs);
-            write.println("LOCAL " + local);
-            write.println("PARENT DIR " + parent);
-            write.println("EXECUTABLE FILE LOCATION " + executableFile);
-            write.println("PROCESS BUILDER COMMAND STRING " + pb.command());
-            write.println("IMAGE NAME " + imageName);
-            write.println("NO EXTENSION NAME " + imageNameWOExt);
-            write.println("OUTPUT PATH " + outputDirPath.toString());           
-            write.println("OPERATING SYSTEM TO ANALYZE  "+settings.opSystem());
-            write.println("VOLATILITY PROFILE "+settings.getVolProfile());
-            write.println("ARRAY LIST OF PLUGINS: "+settings.getVolPlugins().toString());
+            // write error logfile to .txt file in the 
+            File log = new File(outputDirPath.toString(), "VFprocessErrorLog_" + volPlugin + ".txt");
+            pb.redirectErrorStream(true);
+            pb.redirectOutput(ProcessBuilder.Redirect.appendTo(log));
 
-        } catch (FileNotFoundException ex) {
-            Exceptions.printStackTrace(ex);
-        }
-        try {
-            FileWriter writeFile = new FileWriter(logAll, true);
-            BufferedWriter bufferWrite = new BufferedWriter(writeFile);
-            try (PrintWriter print = new PrintWriter(bufferWrite)) {
-                print.println("TIME "+ dateString);
-                print.println("LOCAL ABS " + localAbs);
-                print.println("LOCAL " + local);
-                print.println("PARENT DIR " + parent);
-                print.println("EXECUTABLE FILE LOCATION " + executableFile);
-                print.println("PROCESS BUILDER COMMAND STRING " + pb.command());
-                print.println("IMAGE NAME " + imageName);
-                print.println("NO EXTENSION NAME " + imageNameWOExt);
-                print.println(outputDirPath.toString());
-                print.println("OPERATING SYSTEM TO ANALYZE  "+settings.opSystem());
-                print.println("VOLATILITY PROFILE "+settings.getVolProfile());
-                print.println("ARRAY LIST OF PLUGINS: "+settings.getVolPlugins().toString());
-                print.println("\n\n");
+            //write a log file
+            String localAbs = af.getLocalAbsPath();
+            String local = af.getLocalPath();
+            String parent = af.getParentPath();
+
+            //log file for curremt run
+            File logCurrent = new File(this.rootOutputDirPath.toString(), "LogFileForThisRun.txt");
+            File logAll = new File(this.rootOutputDirPath.toString(), "LogFileAll.txt");
+
+            try (PrintWriter write = new PrintWriter(logCurrent)) {
+                write.println("TIME " + dateString);
+                write.println("LOCAL ABS " + localAbs);
+                write.println("LOCAL " + local);
+                write.println("PARENT DIR " + parent);
+                write.println("EXECUTABLE FILE LOCATION " + executableFile);
+                write.println("PROCESS BUILDER COMMAND STRING " + pb.command());
+                write.println("IMAGE NAME " + imageName);
+                write.println("NO EXTENSION NAME " + imageNameWOExt);
+                write.println("OUTPUT PATH " + outputDirPath.toString());
+                write.println("OPERATING SYSTEM TO ANALYZE  " + settings.opSystem());
+                write.println("VOLATILITY PROFILE " + settings.getVolProfile());
+                write.println("ARRAY LIST OF PLUGINS: " + settings.getVolPlugins().toString());
+
+            } catch (FileNotFoundException ex) {
+                Exceptions.printStackTrace(ex);
             }
-        } catch (FileNotFoundException ex) {
-            Exceptions.printStackTrace(ex);
-        } catch (IOException ex) {
-            Exceptions.printStackTrace(ex);
-        }
+            try {
+                FileWriter writeFile = new FileWriter(logAll, true);
+                BufferedWriter bufferWrite = new BufferedWriter(writeFile);
+                try (PrintWriter print = new PrintWriter(bufferWrite)) {
+                    print.println("TIME " + dateString);
+                    print.println("LOCAL ABS " + localAbs);
+                    print.println("LOCAL " + local);
+                    print.println("PARENT DIR " + parent);
+                    print.println("EXECUTABLE FILE LOCATION " + executableFile);
+                    print.println("PROCESS BUILDER COMMAND STRING " + pb.command());
+                    print.println("IMAGE NAME " + imageName);
+                    print.println("NO EXTENSION NAME " + imageNameWOExt);
+                    print.println(outputDirPath.toString());
+                    print.println("OPERATING SYSTEM TO ANALYZE  " + settings.opSystem());
+                    print.println("VOLATILITY PROFILE " + settings.getVolProfile());
+                    print.println("ARRAY LIST OF PLUGINS: " + settings.getVolPlugins().toString());
+                    print.println("\n\n");
+                }
+            } catch (FileNotFoundException ex) {
+                Exceptions.printStackTrace(ex);
+            } catch (IOException ex) {
+                Exceptions.printStackTrace(ex);
+            }
 
         //run porocess
-        
-       // int exitValue = ExecUtil.execute(pb, new FileIngestModuleProcessTerminator(this.context));
-        
-        
-        try {
-            Process p = pb.start();
-            // p.waitFor();
-        } catch (IOException ex) {
-            Exceptions.printStackTrace(ex);
-        }
-        
-        
-        //Produce the report in Autopsy
-        try {
-            Case.getCurrentCase().addReport(outputDirPath.toString()+"\\"+ imageNameWOExt+"_" + volPlugin + dateString + ".txt", VfIngestFactoryAdapter.getModuleName(), imageName+volPlugin);
-        } catch (TskCoreException ex) {
-            Exceptions.printStackTrace(ex);
-        }
+            // int exitValue = ExecUtil.execute(pb, new FileIngestModuleProcessTerminator(this.context));
+            try {
+                Process p = pb.start();
+                p.waitFor();
+
+            } catch (IOException | InterruptedException ex) {
+                Exceptions.printStackTrace(ex);
+            }
+
+            //Produce the report in Autopsy
+            try {
+                Case.getCurrentCase().addReport(outputDirPath.toString() + "\\" + imageNameWOExt + "_" + volPlugin + dateString + ".rtf", VfIngestFactoryAdapter.getModuleName(), volPlugin + " run on " + imageName);
+            } catch (TskCoreException ex) {
+                Exceptions.printStackTrace(ex);
+            }
+
+        } //end of for loop
 
         return IngestModule.ProcessResult.OK;
 
-    }
+    } //end of public ProcessResult process(AbstractFile af)
 
     @Override
     public void shutDown() {
-            
-  
+
     }
 
     public static File locateExecutable(String executableToFindName) throws IngestModule.IngestModuleException {
