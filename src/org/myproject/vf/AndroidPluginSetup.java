@@ -62,6 +62,24 @@ public class AndroidPluginSetup extends javax.swing.JDialog {
         dentryCache = new javax.swing.JCheckBox();
         kernelDebugBuffer = new javax.swing.JCheckBox();
         findELF = new javax.swing.JCheckBox();
+        ifconfigComm = new javax.swing.JCheckBox();
+        enumerateFiles = new javax.swing.JCheckBox();
+        hiddenKernelModules = new javax.swing.JCheckBox();
+        jLabel3 = new javax.swing.JLabel();
+        iomemComm = new javax.swing.JCheckBox();
+        keyboardNotifiers = new javax.swing.JCheckBox();
+        ldrModules = new javax.swing.JCheckBox();
+        jLabel4 = new javax.swing.JLabel();
+        libraryList = new javax.swing.JCheckBox();
+        jLabel5 = new javax.swing.JLabel();
+        appsPromSoc = new javax.swing.JCheckBox();
+        jLabel6 = new javax.swing.JLabel();
+        loadedKernelModules = new javax.swing.JCheckBox();
+        listOpenFiles = new javax.swing.JCheckBox();
+        suspiciousProcessMappings = new javax.swing.JCheckBox();
+        mountedDevices = new javax.swing.JCheckBox();
+        jLabel7 = new javax.swing.JLabel();
+        mountedDevicesKmemCache = new javax.swing.JCheckBox();
         androidVolProfile = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -203,77 +221,242 @@ public class AndroidPluginSetup extends javax.swing.JDialog {
             }
         });
 
+        org.openide.awt.Mnemonics.setLocalizedText(ifconfigComm, org.openide.util.NbBundle.getMessage(AndroidPluginSetup.class, "AndroidPluginSetup.ifconfigComm.text")); // NOI18N
+        ifconfigComm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ifconfigCommActionPerformed(evt);
+            }
+        });
+
+        org.openide.awt.Mnemonics.setLocalizedText(enumerateFiles, org.openide.util.NbBundle.getMessage(AndroidPluginSetup.class, "AndroidPluginSetup.enumerateFiles.text")); // NOI18N
+        enumerateFiles.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                enumerateFilesActionPerformed(evt);
+            }
+        });
+
+        org.openide.awt.Mnemonics.setLocalizedText(hiddenKernelModules, org.openide.util.NbBundle.getMessage(AndroidPluginSetup.class, "AndroidPluginSetup.hiddenKernelModules.text")); // NOI18N
+        hiddenKernelModules.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hiddenKernelModulesActionPerformed(evt);
+            }
+        });
+
+        org.openide.awt.Mnemonics.setLocalizedText(jLabel3, org.openide.util.NbBundle.getMessage(AndroidPluginSetup.class, "AndroidPluginSetup.jLabel3.text")); // NOI18N
+
+        org.openide.awt.Mnemonics.setLocalizedText(iomemComm, org.openide.util.NbBundle.getMessage(AndroidPluginSetup.class, "AndroidPluginSetup.iomemComm.text")); // NOI18N
+        iomemComm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                iomemCommActionPerformed(evt);
+            }
+        });
+
+        org.openide.awt.Mnemonics.setLocalizedText(keyboardNotifiers, org.openide.util.NbBundle.getMessage(AndroidPluginSetup.class, "AndroidPluginSetup.keyboardNotifiers.text")); // NOI18N
+        keyboardNotifiers.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                keyboardNotifiersActionPerformed(evt);
+            }
+        });
+
+        org.openide.awt.Mnemonics.setLocalizedText(ldrModules, org.openide.util.NbBundle.getMessage(AndroidPluginSetup.class, "AndroidPluginSetup.ldrModules.text")); // NOI18N
+        ldrModules.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ldrModulesActionPerformed(evt);
+            }
+        });
+
+        org.openide.awt.Mnemonics.setLocalizedText(jLabel4, org.openide.util.NbBundle.getMessage(AndroidPluginSetup.class, "AndroidPluginSetup.jLabel4.text")); // NOI18N
+
+        org.openide.awt.Mnemonics.setLocalizedText(libraryList, org.openide.util.NbBundle.getMessage(AndroidPluginSetup.class, "AndroidPluginSetup.libraryList.text")); // NOI18N
+        libraryList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                libraryListActionPerformed(evt);
+            }
+        });
+
+        org.openide.awt.Mnemonics.setLocalizedText(jLabel5, org.openide.util.NbBundle.getMessage(AndroidPluginSetup.class, "AndroidPluginSetup.jLabel5.text")); // NOI18N
+
+        org.openide.awt.Mnemonics.setLocalizedText(appsPromSoc, org.openide.util.NbBundle.getMessage(AndroidPluginSetup.class, "AndroidPluginSetup.appsPromSoc.text")); // NOI18N
+        appsPromSoc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                appsPromSocActionPerformed(evt);
+            }
+        });
+
+        org.openide.awt.Mnemonics.setLocalizedText(jLabel6, org.openide.util.NbBundle.getMessage(AndroidPluginSetup.class, "AndroidPluginSetup.jLabel6.text")); // NOI18N
+
+        org.openide.awt.Mnemonics.setLocalizedText(loadedKernelModules, org.openide.util.NbBundle.getMessage(AndroidPluginSetup.class, "AndroidPluginSetup.loadedKernelModules.text")); // NOI18N
+        loadedKernelModules.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loadedKernelModulesActionPerformed(evt);
+            }
+        });
+
+        org.openide.awt.Mnemonics.setLocalizedText(listOpenFiles, org.openide.util.NbBundle.getMessage(AndroidPluginSetup.class, "AndroidPluginSetup.listOpenFiles.text")); // NOI18N
+        listOpenFiles.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listOpenFilesActionPerformed(evt);
+            }
+        });
+
+        org.openide.awt.Mnemonics.setLocalizedText(suspiciousProcessMappings, org.openide.util.NbBundle.getMessage(AndroidPluginSetup.class, "AndroidPluginSetup.suspiciousProcessMappings.text")); // NOI18N
+        suspiciousProcessMappings.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                suspiciousProcessMappingsActionPerformed(evt);
+            }
+        });
+
+        org.openide.awt.Mnemonics.setLocalizedText(mountedDevices, org.openide.util.NbBundle.getMessage(AndroidPluginSetup.class, "AndroidPluginSetup.mountedDevices.text")); // NOI18N
+        mountedDevices.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mountedDevicesActionPerformed(evt);
+            }
+        });
+
+        org.openide.awt.Mnemonics.setLocalizedText(jLabel7, org.openide.util.NbBundle.getMessage(AndroidPluginSetup.class, "AndroidPluginSetup.jLabel7.text")); // NOI18N
+
+        org.openide.awt.Mnemonics.setLocalizedText(mountedDevicesKmemCache, org.openide.util.NbBundle.getMessage(AndroidPluginSetup.class, "AndroidPluginSetup.mountedDevicesKmemCache.text")); // NOI18N
+        mountedDevicesKmemCache.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mountedDevicesKmemCacheActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(limeInfo)
-                    .addComponent(arpTable)
-                    .addComponent(linuxBanner)
-                    .addComponent(bashHistory)
-                    .addComponent(bashEnvVar)
-                    .addComponent(bashHashTable)
-                    .addComponent(checkAfInfo)
-                    .addComponent(checkCredsStruct)
-                    .addComponent(checkEvt)
-                    .addComponent(checkModules)
                     .addComponent(dentryCache)
+                    .addComponent(kernelDebugBuffer)
+                    .addComponent(findELF)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(checkSyscall)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel2))
-                            .addComponent(checkSyscallArm))
+                            .addComponent(checkSyscallArm)
+                            .addComponent(limeInfo)
+                            .addComponent(arpTable)
+                            .addComponent(linuxBanner)
+                            .addComponent(bashHistory)
+                            .addComponent(bashEnvVar)
+                            .addComponent(bashHashTable)
+                            .addComponent(checkAfInfo)
+                            .addComponent(checkCredsStruct)
+                            .addComponent(checkEvt)
+                            .addComponent(checkModules)
+                            .addComponent(ifconfigComm)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(enumerateFiles)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel3)))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(pstree)
-                            .addComponent(pslist)))
-                    .addComponent(kernelDebugBuffer)
-                    .addComponent(findELF))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(mountedDevices)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel7))
+                            .addComponent(suspiciousProcessMappings)
+                            .addComponent(listOpenFiles)
+                            .addComponent(loadedKernelModules)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(appsPromSoc)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel6))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(libraryList)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel5))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(ldrModules)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel4))
+                            .addComponent(keyboardNotifiers)
+                            .addComponent(hiddenKernelModules)
+                            .addComponent(pslist)
+                            .addComponent(iomemComm)
+                            .addComponent(mountedDevicesKmemCache))))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(limeInfo)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(limeInfo)
+                    .addComponent(hiddenKernelModules))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(arpTable)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(arpTable)
+                    .addComponent(iomemComm))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(linuxBanner)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(linuxBanner)
+                    .addComponent(keyboardNotifiers))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(bashHistory)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bashHistory)
+                    .addComponent(ldrModules)
+                    .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(bashEnvVar)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bashEnvVar)
+                    .addComponent(libraryList)
+                    .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(bashHashTable)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bashHashTable)
+                    .addComponent(appsPromSoc)
+                    .addComponent(jLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(checkAfInfo)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(checkAfInfo)
+                    .addComponent(loadedKernelModules))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(checkCredsStruct)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(checkCredsStruct)
+                    .addComponent(listOpenFiles))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(checkEvt)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(checkEvt)
+                    .addComponent(suspiciousProcessMappings))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(checkModules)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(checkModules)
+                    .addComponent(mountedDevices)
+                    .addComponent(jLabel7))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(checkSyscall)
                     .addComponent(jLabel2)
-                    .addComponent(pslist))
+                    .addComponent(mountedDevicesKmemCache))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(checkSyscallArm)
-                    .addComponent(pstree))
+                .addComponent(checkSyscallArm)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(dentryCache)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(kernelDebugBuffer)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(findELF)
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(ifconfigComm)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(enumerateFiles)
+                            .addComponent(jLabel3))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 4, Short.MAX_VALUE)
+                        .addComponent(pslist)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(pstree)
+                        .addGap(18, 18, 18))))
         );
 
         androidVolProfile.setText(org.openide.util.NbBundle.getMessage(AndroidPluginSetup.class, "AndroidPluginSetup.androidVolProfile.text")); // NOI18N
@@ -283,18 +466,19 @@ public class AndroidPluginSetup extends javax.swing.JDialog {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(androidVolProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(177, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(saveAndroidSettingsButton)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(357, Short.MAX_VALUE)
+                        .addComponent(saveAndroidSettingsButton))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(androidVolProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 233, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -535,6 +719,162 @@ public class AndroidPluginSetup extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_findELFActionPerformed
 
+    private void ifconfigCommActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ifconfigCommActionPerformed
+        // TODO add your handling code here:
+        if (ifconfigComm.isSelected()) {
+
+            plugins.add("linux_ifconfig");
+        }
+        else if(!ifconfigComm.isSelected()){
+            //line to remove plugin from ArrayList if box not selected
+            plugins.remove(plugins.indexOf("linux_ifconfig"));   
+        }
+    }//GEN-LAST:event_ifconfigCommActionPerformed
+
+    private void enumerateFilesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enumerateFilesActionPerformed
+        // TODO add your handling code here:
+        if (enumerateFiles.isSelected()) {
+
+            plugins.add("linux_enumerate_files");
+        }
+        else if(!enumerateFiles.isSelected()){
+            //line to remove plugin from ArrayList if box not selected
+            plugins.remove(plugins.indexOf("linux_enumerate_files"));   
+        }
+    }//GEN-LAST:event_enumerateFilesActionPerformed
+
+    private void hiddenKernelModulesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hiddenKernelModulesActionPerformed
+        // TODO add your handling code here:
+        if (hiddenKernelModules.isSelected()) {
+
+            plugins.add("linux_hidden_modules");
+        }
+        else if(!hiddenKernelModules.isSelected()){
+            //line to remove plugin from ArrayList if box not selected
+            plugins.remove(plugins.indexOf("linux_hidden_modules"));   
+        }
+    }//GEN-LAST:event_hiddenKernelModulesActionPerformed
+
+    private void iomemCommActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iomemCommActionPerformed
+        // TODO add your handling code here:
+        if (iomemComm.isSelected()) {
+
+            plugins.add("linux_iomem");
+        }
+        else if(!iomemComm.isSelected()){
+            //line to remove plugin from ArrayList if box not selected
+            plugins.remove(plugins.indexOf("linux_iomem"));   
+        }
+    }//GEN-LAST:event_iomemCommActionPerformed
+
+    private void keyboardNotifiersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_keyboardNotifiersActionPerformed
+        // TODO add your handling code here:
+        if (keyboardNotifiers.isSelected()) {
+
+            plugins.add("linux_keyboard_notifiers");
+        }
+        else if(!keyboardNotifiers.isSelected()){
+            //line to remove plugin from ArrayList if box not selected
+            plugins.remove(plugins.indexOf("linux_keyboard_notifiers"));   
+        }
+    }//GEN-LAST:event_keyboardNotifiersActionPerformed
+
+    private void ldrModulesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ldrModulesActionPerformed
+        // TODO add your handling code here:
+        if (ldrModules.isSelected()) {
+
+            plugins.add("linux_ldrmodules");
+        }
+        else if(!ldrModules.isSelected()){
+            //line to remove plugin from ArrayList if box not selected
+            plugins.remove(plugins.indexOf("linux_ldrmodules"));   
+        }
+    }//GEN-LAST:event_ldrModulesActionPerformed
+
+    private void libraryListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_libraryListActionPerformed
+        // TODO add your handling code here:
+        if (libraryList.isSelected()) {
+
+            plugins.add("linux_library_list");
+        }
+        else if(!libraryList.isSelected()){
+            //line to remove plugin from ArrayList if box not selected
+            plugins.remove(plugins.indexOf("linux_library_list"));   
+        }
+    }//GEN-LAST:event_libraryListActionPerformed
+
+    private void appsPromSocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_appsPromSocActionPerformed
+        // TODO add your handling code here:
+        if (appsPromSoc.isSelected()) {
+
+            plugins.add("linux_list_raw");
+        }
+        else if(!appsPromSoc.isSelected()){
+            //line to remove plugin from ArrayList if box not selected
+            plugins.remove(plugins.indexOf("linux_list_raw"));   
+        }
+    }//GEN-LAST:event_appsPromSocActionPerformed
+
+    private void loadedKernelModulesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadedKernelModulesActionPerformed
+        // TODO add your handling code here:
+        if (loadedKernelModules.isSelected()) {
+
+            plugins.add("linux_lsmod");
+        }
+        else if(!loadedKernelModules.isSelected()){
+            //line to remove plugin from ArrayList if box not selected
+            plugins.remove(plugins.indexOf("linux_lsmod"));   
+        }
+    }//GEN-LAST:event_loadedKernelModulesActionPerformed
+
+    private void listOpenFilesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listOpenFilesActionPerformed
+        // TODO add your handling code here:
+         if (listOpenFiles.isSelected()) {
+
+            plugins.add("linux_lsof");
+        }
+        else if(!listOpenFiles.isSelected()){
+            //line to remove plugin from ArrayList if box not selected
+            plugins.remove(plugins.indexOf("linux_lsof"));   
+        }
+    }//GEN-LAST:event_listOpenFilesActionPerformed
+
+    private void suspiciousProcessMappingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_suspiciousProcessMappingsActionPerformed
+        // TODO add your handling code here:
+        if (suspiciousProcessMappings.isSelected()) {
+
+            plugins.add("linux_malfind");
+        }
+        else if(!suspiciousProcessMappings.isSelected()){
+            //line to remove plugin from ArrayList if box not selected
+            plugins.remove(plugins.indexOf("linux_malfind"));   
+        }
+    }//GEN-LAST:event_suspiciousProcessMappingsActionPerformed
+
+    private void mountedDevicesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mountedDevicesActionPerformed
+        // TODO add your handling code here:        
+        if (mountedDevices.isSelected()) {
+
+            plugins.add("linux_mount");
+        }
+        else if(!mountedDevices.isSelected()){
+            //line to remove plugin from ArrayList if box not selected
+            plugins.remove(plugins.indexOf("linux_mount"));   
+        }
+    }//GEN-LAST:event_mountedDevicesActionPerformed
+
+    private void mountedDevicesKmemCacheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mountedDevicesKmemCacheActionPerformed
+        // TODO add your handling code here:
+        if (mountedDevices.isSelected()) {
+
+            plugins.add("linux_mount_cache");
+        }
+        else if(!mountedDevices.isSelected()){
+            //line to remove plugin from ArrayList if box not selected
+            plugins.remove(plugins.indexOf("linux_mount_cache"));   
+        }
+    }//GEN-LAST:event_mountedDevicesKmemCacheActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -579,6 +919,7 @@ public class AndroidPluginSetup extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField androidVolProfile;
+    private javax.swing.JCheckBox appsPromSoc;
     private javax.swing.JCheckBox arpTable;
     private javax.swing.JCheckBox bashEnvVar;
     private javax.swing.JCheckBox bashHashTable;
@@ -590,15 +931,32 @@ public class AndroidPluginSetup extends javax.swing.JDialog {
     private javax.swing.JCheckBox checkSyscall;
     private javax.swing.JCheckBox checkSyscallArm;
     private javax.swing.JCheckBox dentryCache;
+    private javax.swing.JCheckBox enumerateFiles;
     private javax.swing.JCheckBox findELF;
+    private javax.swing.JCheckBox hiddenKernelModules;
+    private javax.swing.JCheckBox ifconfigComm;
+    private javax.swing.JCheckBox iomemComm;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JCheckBox kernelDebugBuffer;
+    private javax.swing.JCheckBox keyboardNotifiers;
+    private javax.swing.JCheckBox ldrModules;
+    private javax.swing.JCheckBox libraryList;
     private javax.swing.JCheckBox limeInfo;
     private javax.swing.JCheckBox linuxBanner;
+    private javax.swing.JCheckBox listOpenFiles;
+    private javax.swing.JCheckBox loadedKernelModules;
+    private javax.swing.JCheckBox mountedDevices;
+    private javax.swing.JCheckBox mountedDevicesKmemCache;
     private javax.swing.JCheckBox pslist;
     private javax.swing.JCheckBox pstree;
     private javax.swing.JButton saveAndroidSettingsButton;
+    private javax.swing.JCheckBox suspiciousProcessMappings;
     // End of variables declaration//GEN-END:variables
 }
