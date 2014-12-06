@@ -46,6 +46,22 @@ public class AndroidPluginSetup extends javax.swing.JDialog {
         jPanel1 = new javax.swing.JPanel();
         pstree = new javax.swing.JCheckBox();
         pslist = new javax.swing.JCheckBox();
+        limeInfo = new javax.swing.JCheckBox();
+        arpTable = new javax.swing.JCheckBox();
+        linuxBanner = new javax.swing.JCheckBox();
+        bashHistory = new javax.swing.JCheckBox();
+        bashEnvVar = new javax.swing.JCheckBox();
+        bashHashTable = new javax.swing.JCheckBox();
+        checkAfInfo = new javax.swing.JCheckBox();
+        checkCredsStruct = new javax.swing.JCheckBox();
+        checkEvt = new javax.swing.JCheckBox();
+        checkModules = new javax.swing.JCheckBox();
+        checkSyscall = new javax.swing.JCheckBox();
+        jLabel2 = new javax.swing.JLabel();
+        checkSyscallArm = new javax.swing.JCheckBox();
+        dentryCache = new javax.swing.JCheckBox();
+        kernelDebugBuffer = new javax.swing.JCheckBox();
+        findELF = new javax.swing.JCheckBox();
         androidVolProfile = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -80,25 +96,184 @@ public class AndroidPluginSetup extends javax.swing.JDialog {
             }
         });
 
+        org.openide.awt.Mnemonics.setLocalizedText(limeInfo, org.openide.util.NbBundle.getMessage(AndroidPluginSetup.class, "AndroidPluginSetup.limeInfo.text")); // NOI18N
+        limeInfo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                limeInfoActionPerformed(evt);
+            }
+        });
+
+        org.openide.awt.Mnemonics.setLocalizedText(arpTable, org.openide.util.NbBundle.getMessage(AndroidPluginSetup.class, "AndroidPluginSetup.arpTable.text")); // NOI18N
+        arpTable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                arpTableActionPerformed(evt);
+            }
+        });
+
+        org.openide.awt.Mnemonics.setLocalizedText(linuxBanner, org.openide.util.NbBundle.getMessage(AndroidPluginSetup.class, "AndroidPluginSetup.linuxBanner.text")); // NOI18N
+        linuxBanner.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                linuxBannerActionPerformed(evt);
+            }
+        });
+
+        org.openide.awt.Mnemonics.setLocalizedText(bashHistory, org.openide.util.NbBundle.getMessage(AndroidPluginSetup.class, "AndroidPluginSetup.bashHistory.text")); // NOI18N
+        bashHistory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bashHistoryActionPerformed(evt);
+            }
+        });
+
+        org.openide.awt.Mnemonics.setLocalizedText(bashEnvVar, org.openide.util.NbBundle.getMessage(AndroidPluginSetup.class, "AndroidPluginSetup.bashEnvVar.text")); // NOI18N
+        bashEnvVar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bashEnvVarActionPerformed(evt);
+            }
+        });
+
+        org.openide.awt.Mnemonics.setLocalizedText(bashHashTable, org.openide.util.NbBundle.getMessage(AndroidPluginSetup.class, "AndroidPluginSetup.bashHashTable.text")); // NOI18N
+        bashHashTable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bashHashTableActionPerformed(evt);
+            }
+        });
+
+        org.openide.awt.Mnemonics.setLocalizedText(checkAfInfo, org.openide.util.NbBundle.getMessage(AndroidPluginSetup.class, "AndroidPluginSetup.checkAfInfo.text")); // NOI18N
+        checkAfInfo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkAfInfoActionPerformed(evt);
+            }
+        });
+
+        org.openide.awt.Mnemonics.setLocalizedText(checkCredsStruct, org.openide.util.NbBundle.getMessage(AndroidPluginSetup.class, "AndroidPluginSetup.checkCredsStruct.text")); // NOI18N
+        checkCredsStruct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkCredsStructActionPerformed(evt);
+            }
+        });
+
+        org.openide.awt.Mnemonics.setLocalizedText(checkEvt, org.openide.util.NbBundle.getMessage(AndroidPluginSetup.class, "AndroidPluginSetup.checkEvt.text")); // NOI18N
+        checkEvt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkEvtActionPerformed(evt);
+            }
+        });
+
+        org.openide.awt.Mnemonics.setLocalizedText(checkModules, org.openide.util.NbBundle.getMessage(AndroidPluginSetup.class, "AndroidPluginSetup.checkModules.text")); // NOI18N
+        checkModules.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkModulesActionPerformed(evt);
+            }
+        });
+
+        org.openide.awt.Mnemonics.setLocalizedText(checkSyscall, org.openide.util.NbBundle.getMessage(AndroidPluginSetup.class, "AndroidPluginSetup.checkSyscall.text")); // NOI18N
+        checkSyscall.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkSyscallActionPerformed(evt);
+            }
+        });
+
+        org.openide.awt.Mnemonics.setLocalizedText(jLabel2, org.openide.util.NbBundle.getMessage(AndroidPluginSetup.class, "AndroidPluginSetup.jLabel2.text")); // NOI18N
+
+        org.openide.awt.Mnemonics.setLocalizedText(checkSyscallArm, org.openide.util.NbBundle.getMessage(AndroidPluginSetup.class, "AndroidPluginSetup.checkSyscallArm.text")); // NOI18N
+        checkSyscallArm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkSyscallArmActionPerformed(evt);
+            }
+        });
+
+        org.openide.awt.Mnemonics.setLocalizedText(dentryCache, org.openide.util.NbBundle.getMessage(AndroidPluginSetup.class, "AndroidPluginSetup.dentryCache.text")); // NOI18N
+        dentryCache.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dentryCacheActionPerformed(evt);
+            }
+        });
+
+        org.openide.awt.Mnemonics.setLocalizedText(kernelDebugBuffer, org.openide.util.NbBundle.getMessage(AndroidPluginSetup.class, "AndroidPluginSetup.kernelDebugBuffer.text")); // NOI18N
+        kernelDebugBuffer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                kernelDebugBufferActionPerformed(evt);
+            }
+        });
+
+        org.openide.awt.Mnemonics.setLocalizedText(findELF, org.openide.util.NbBundle.getMessage(AndroidPluginSetup.class, "AndroidPluginSetup.findELF.text")); // NOI18N
+        findELF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                findELFActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pstree)
-                    .addComponent(pslist))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(limeInfo)
+                    .addComponent(arpTable)
+                    .addComponent(linuxBanner)
+                    .addComponent(bashHistory)
+                    .addComponent(bashEnvVar)
+                    .addComponent(bashHashTable)
+                    .addComponent(checkAfInfo)
+                    .addComponent(checkCredsStruct)
+                    .addComponent(checkEvt)
+                    .addComponent(checkModules)
+                    .addComponent(dentryCache)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(checkSyscall)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel2))
+                            .addComponent(checkSyscallArm))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(pstree)
+                            .addComponent(pslist)))
+                    .addComponent(kernelDebugBuffer)
+                    .addComponent(findELF))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(pstree)
+                .addComponent(limeInfo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pslist)
-                .addContainerGap(124, Short.MAX_VALUE))
+                .addComponent(arpTable)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(linuxBanner)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(bashHistory)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(bashEnvVar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(bashHashTable)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(checkAfInfo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(checkCredsStruct)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(checkEvt)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(checkModules)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(checkSyscall)
+                    .addComponent(jLabel2)
+                    .addComponent(pslist))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(checkSyscallArm)
+                    .addComponent(pstree))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(dentryCache)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(kernelDebugBuffer)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(findELF)
+                .addContainerGap(54, Short.MAX_VALUE))
         );
 
         androidVolProfile.setText(org.openide.util.NbBundle.getMessage(AndroidPluginSetup.class, "AndroidPluginSetup.androidVolProfile.text")); // NOI18N
@@ -152,16 +327,16 @@ public class AndroidPluginSetup extends javax.swing.JDialog {
     //Set Volatility Plugins list
     private void pstreeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pstreeActionPerformed
         // TODO add your handling code here:
+        //line to add plugin to ArrayList if box selected
         if (pstree.isSelected()) {
 
             plugins.add("linux_pstree");
-            
-            System.out.println("PLUGIN SETUP "+plugins.toString());
+ 
         }
         else if(!pstree.isSelected()){
-            //line to remove plugin to ArrayList if box selected
+            //line to remove plugin from ArrayList if box not selected
             plugins.remove(plugins.indexOf("linux_pstree"));
-            System.out.println("PLUGIN SETUP NOT SELECTED"+plugins.toString());
+            
         }
     }//GEN-LAST:event_pstreeActionPerformed
 
@@ -170,15 +345,195 @@ public class AndroidPluginSetup extends javax.swing.JDialog {
         if (pslist.isSelected()) {
             //line to add plugin to ArrayList if box selected
             plugins.add("linux_pslist");
-            System.out.println("PLUGIN SETUP "+plugins.toString());
         }
         else if(!pslist.isSelected()){
             //line to remove plugin to ArrayList if box selected
             plugins.remove(plugins.indexOf("linux_pslist"));
-            System.out.println("PLUGIN SETUP NOT SELECTED"+plugins.toString());
         }
        
     }//GEN-LAST:event_pslistActionPerformed
+
+    private void limeInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limeInfoActionPerformed
+        // TODO add your handling code here:
+        if (limeInfo.isSelected()) {
+
+            plugins.add("limeinfo");
+        }
+        else if(!limeInfo.isSelected()){
+            //line to remove plugin to ArrayList if box selected
+            plugins.remove(plugins.indexOf("limeinfo"));   
+        }
+    }//GEN-LAST:event_limeInfoActionPerformed
+
+    private void arpTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_arpTableActionPerformed
+        // TODO add your handling code here:
+        if (arpTable.isSelected()) {
+
+            plugins.add("linux_arp");
+        }
+        else if(!arpTable.isSelected()){
+            //line to remove plugin to ArrayList if box selected
+            plugins.remove(plugins.indexOf("linux_arp"));   
+        }
+    }//GEN-LAST:event_arpTableActionPerformed
+
+    private void linuxBannerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_linuxBannerActionPerformed
+        // TODO add your handling code here:
+        if (linuxBanner.isSelected()) {
+
+            plugins.add("linux_banner");
+        }
+        else if(!linuxBanner.isSelected()){
+            //line to remove plugin to ArrayList if box selected
+            plugins.remove(plugins.indexOf("linux_banner"));   
+        }
+    }//GEN-LAST:event_linuxBannerActionPerformed
+
+    private void bashHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bashHistoryActionPerformed
+        // TODO add your handling code here:
+        if (bashHistory.isSelected()) {
+
+            plugins.add("linux_bash");
+        }
+        else if(!bashHistory.isSelected()){
+            //line to remove plugin to ArrayList if box selected
+            plugins.remove(plugins.indexOf("linux_bash"));   
+        }
+    }//GEN-LAST:event_bashHistoryActionPerformed
+
+    private void bashEnvVarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bashEnvVarActionPerformed
+        // TODO add your handling code here:
+        if (bashEnvVar.isSelected()) {
+
+            plugins.add("linux_bash_env");
+        }
+        else if(!bashEnvVar.isSelected()){
+            //line to remove plugin to ArrayList if box selected
+            plugins.remove(plugins.indexOf("linux_bash_env"));   
+        }
+    }//GEN-LAST:event_bashEnvVarActionPerformed
+
+    private void bashHashTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bashHashTableActionPerformed
+        // TODO add your handling code here:
+        if (bashHashTable.isSelected()) {
+
+            plugins.add("linux_bash_hash");
+        }
+        else if(!bashHashTable.isSelected()){
+            //line to remove plugin to ArrayList if box selected
+            plugins.remove(plugins.indexOf("linux_bash_hash"));   
+        }
+    }//GEN-LAST:event_bashHashTableActionPerformed
+
+    private void checkAfInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkAfInfoActionPerformed
+        // TODO add your handling code here:
+        //line to add plugin to ArrayList if box selected
+        if (checkAfInfo.isSelected()) {
+
+            plugins.add("linux_check_afinfo");
+        }
+        else if(!checkAfInfo.isSelected()){
+            //line to remove plugin from ArrayList if box not selected
+            plugins.remove(plugins.indexOf("linux_check_afinfo"));   
+        }
+    }//GEN-LAST:event_checkAfInfoActionPerformed
+
+    private void checkCredsStructActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkCredsStructActionPerformed
+        // TODO add your handling code here:
+        //line to add plugin to ArrayList if box selected
+        if (checkCredsStruct.isSelected()) {
+
+            plugins.add("linux_check_creds");
+        }
+        else if(!checkCredsStruct.isSelected()){
+            //line to remove plugin from ArrayList if box not selected
+            plugins.remove(plugins.indexOf("linux_check_creds"));   
+        }
+    }//GEN-LAST:event_checkCredsStructActionPerformed
+
+    private void checkEvtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkEvtActionPerformed
+        // TODO add your handling code here:
+        if (checkEvt.isSelected()) {
+
+            plugins.add("linux_check_evt_arm");
+        }
+        else if(!checkEvt.isSelected()){
+            //line to remove plugin from ArrayList if box not selected
+            plugins.remove(plugins.indexOf("linux_check_evt_arm"));   
+        }
+    }//GEN-LAST:event_checkEvtActionPerformed
+
+    private void checkModulesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkModulesActionPerformed
+        // TODO add your handling code here:
+        if (checkModules.isSelected()) {
+
+            plugins.add("linux_check_modules");
+        }
+        else if(!checkModules.isSelected()){
+            //line to remove plugin from ArrayList if box not selected
+            plugins.remove(plugins.indexOf("linux_check_modules"));   
+        }
+    }//GEN-LAST:event_checkModulesActionPerformed
+
+    private void checkSyscallActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkSyscallActionPerformed
+        // TODO add your handling code here:
+        if (checkSyscall.isSelected()) {
+
+            plugins.add("linux_check_syscall");
+        }
+        else if(!checkSyscall.isSelected()){
+            //line to remove plugin from ArrayList if box not selected
+            plugins.remove(plugins.indexOf("linux_check_syscall"));   
+        }
+    }//GEN-LAST:event_checkSyscallActionPerformed
+
+    private void checkSyscallArmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkSyscallArmActionPerformed
+        // TODO add your handling code here:
+        if (checkSyscallArm.isSelected()) {
+
+            plugins.add("linux_check_syscall_arm");
+        }
+        else if(!checkSyscallArm.isSelected()){
+            //line to remove plugin from ArrayList if box not selected
+            plugins.remove(plugins.indexOf("linux_check_syscall_arm"));   
+        }
+    }//GEN-LAST:event_checkSyscallArmActionPerformed
+
+    private void dentryCacheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dentryCacheActionPerformed
+        // TODO add your handling code here:
+         if (dentryCache.isSelected()) {
+
+            plugins.add("linux_dentry_cache");
+        }
+        else if(!dentryCache.isSelected()){
+            //line to remove plugin from ArrayList if box not selected
+            plugins.remove(plugins.indexOf("linux_dentry_cache"));   
+        }
+    }//GEN-LAST:event_dentryCacheActionPerformed
+
+    private void kernelDebugBufferActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kernelDebugBufferActionPerformed
+        // TODO add your handling code here:
+         if (kernelDebugBuffer.isSelected()) {
+
+            plugins.add("linux_dmesg");
+        }
+        else if(!kernelDebugBuffer.isSelected()){
+            //line to remove plugin from ArrayList if box not selected
+            plugins.remove(plugins.indexOf("linux_dmesg"));   
+        }
+    }//GEN-LAST:event_kernelDebugBufferActionPerformed
+
+    private void findELFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_findELFActionPerformed
+        // TODO add your handling code here:
+         if (findELF.isSelected()) {
+
+            plugins.add("linux_elfs");
+        }
+        else if(!findELF.isSelected()){
+            //line to remove plugin from ArrayList if box not selected
+            plugins.remove(plugins.indexOf("linux_elfs"));   
+        }
+    }//GEN-LAST:event_findELFActionPerformed
 
     /**
      * @param args the command line arguments
@@ -224,8 +579,24 @@ public class AndroidPluginSetup extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField androidVolProfile;
+    private javax.swing.JCheckBox arpTable;
+    private javax.swing.JCheckBox bashEnvVar;
+    private javax.swing.JCheckBox bashHashTable;
+    private javax.swing.JCheckBox bashHistory;
+    private javax.swing.JCheckBox checkAfInfo;
+    private javax.swing.JCheckBox checkCredsStruct;
+    private javax.swing.JCheckBox checkEvt;
+    private javax.swing.JCheckBox checkModules;
+    private javax.swing.JCheckBox checkSyscall;
+    private javax.swing.JCheckBox checkSyscallArm;
+    private javax.swing.JCheckBox dentryCache;
+    private javax.swing.JCheckBox findELF;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JCheckBox kernelDebugBuffer;
+    private javax.swing.JCheckBox limeInfo;
+    private javax.swing.JCheckBox linuxBanner;
     private javax.swing.JCheckBox pslist;
     private javax.swing.JCheckBox pstree;
     private javax.swing.JButton saveAndroidSettingsButton;
