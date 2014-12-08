@@ -101,67 +101,77 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="dentryCache" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="kernelDebugBuffer" min="-2" max="-2" attributes="0"/>
-                      <Component id="findELF" min="-2" max="-2" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="checkSyscall" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="checkSyscallArm" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="limeInfo" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="arpTable" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="linuxBanner" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="bashHistory" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="bashEnvVar" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="bashHashTable" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkAfInfo" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkCredsStruct" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkEvt" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkModules" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="ifconfigComm" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="enumerateFiles" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="pstree" min="-2" max="-2" attributes="0"/>
-                              <Group type="102" attributes="0">
-                                  <Component id="mountedDevices" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="suspiciousProcessMappings" min="-2" max="-2" attributes="0"/>
-                              <Component id="listOpenFiles" min="-2" max="-2" attributes="0"/>
-                              <Component id="loadedKernelModules" min="-2" max="-2" attributes="0"/>
-                              <Group type="102" attributes="0">
-                                  <Component id="appsPromSoc" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <Component id="libraryList" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <Component id="ldrModules" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="keyboardNotifiers" min="-2" max="-2" attributes="0"/>
-                              <Component id="hiddenKernelModules" min="-2" max="-2" attributes="0"/>
-                              <Component id="pslist" min="-2" max="-2" attributes="0"/>
-                              <Component id="iomemComm" min="-2" max="-2" attributes="0"/>
-                              <Component id="mountedDevicesKmemCache" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="checkSyscall" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                       </Group>
+                      <Component id="checkSyscallArm" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="limeInfo" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="arpTable" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="linuxBanner" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="bashHistory" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="bashEnvVar" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="bashHashTable" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="checkAfInfo" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="checkCredsStruct" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="checkEvt" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="checkModules" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="ifconfigComm" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="enumerateFiles" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="dentryCache" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="kernelDebugBuffer" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="findELF" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="processListKmemCache" min="-2" max="-2" attributes="0"/>
+                      <Component id="pslist" min="-2" max="-2" attributes="0"/>
+                      <Component id="processListPsxview" min="-2" max="-2" attributes="0"/>
+                      <Component id="pstree" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="listThreads" alignment="0" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="listVma" min="-2" max="-2" attributes="0"/>
+                      <Component id="slabinfoComm" min="-2" max="-2" attributes="0"/>
+                      <Component id="processEnvironment" min="-2" max="-2" attributes="0"/>
+                      <Component id="psauxComm" min="-2" max="-2" attributes="0"/>
+                      <Component id="pltHook" min="-2" max="-2" attributes="0"/>
+                      <Component id="pidHashTable" min="-2" max="-2" attributes="0"/>
+                      <Component id="netstat" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Component id="mountedDevices" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="suspiciousProcessMappings" min="-2" max="-2" attributes="0"/>
+                      <Component id="listOpenFiles" min="-2" max="-2" attributes="0"/>
+                      <Component id="loadedKernelModules" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Component id="appsPromSoc" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Component id="libraryList" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Component id="ldrModules" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="keyboardNotifiers" min="-2" max="-2" attributes="0"/>
+                      <Component id="hiddenKernelModules" min="-2" max="-2" attributes="0"/>
+                      <Component id="iomemComm" min="-2" max="-2" attributes="0"/>
+                      <Component id="mountedDevicesKmemCache" min="-2" max="-2" attributes="0"/>
+                      <Component id="netfilterHooks" min="-2" max="-2" attributes="0"/>
+                      <Component id="processMaps" min="-2" max="-2" attributes="0"/>
+                      <Component id="processMapsRedBlack" min="-2" max="-2" attributes="0"/>
+                      <Component id="routingCache" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
@@ -231,31 +241,60 @@
                       <Component id="mountedDevicesKmemCache" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="checkSyscallArm" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="checkSyscallArm" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="netfilterHooks" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="dentryCache" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="dentryCache" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="netstat" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="kernelDebugBuffer" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="kernelDebugBuffer" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="pidHashTable" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="findELF" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="findELF" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="pltHook" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Component id="ifconfigComm" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="enumerateFiles" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace min="0" pref="4" max="32767" attributes="0"/>
-                          <Component id="pslist" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="pstree" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                      </Group>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="ifconfigComm" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="processMaps" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="enumerateFiles" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="processMapsRedBlack" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="pslist" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="routingCache" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="processEnvironment" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="processListKmemCache" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="psauxComm" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="processListPsxview" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="pstree" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="slabinfoComm" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="2" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="listThreads" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="listVma" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -606,6 +645,146 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mountedDevicesKmemCacheActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="netfilterHooks">
+          <Properties>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+              <ResourceString bundle="org/myproject/vf/Bundle.properties" key="AndroidPluginSetup.netfilterHooks.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="netfilterHooksActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="netstat">
+          <Properties>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+              <ResourceString bundle="org/myproject/vf/Bundle.properties" key="AndroidPluginSetup.netstat.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="netstatActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="pidHashTable">
+          <Properties>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+              <ResourceString bundle="org/myproject/vf/Bundle.properties" key="AndroidPluginSetup.pidHashTable.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pidHashTableActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="pltHook">
+          <Properties>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+              <ResourceString bundle="org/myproject/vf/Bundle.properties" key="AndroidPluginSetup.pltHook.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pltHookActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="processMaps">
+          <Properties>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+              <ResourceString bundle="org/myproject/vf/Bundle.properties" key="AndroidPluginSetup.processMaps.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="processMapsActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="processMapsRedBlack">
+          <Properties>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+              <ResourceString bundle="org/myproject/vf/Bundle.properties" key="AndroidPluginSetup.processMapsRedBlack.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="processMapsRedBlackActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="psauxComm">
+          <Properties>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+              <ResourceString bundle="org/myproject/vf/Bundle.properties" key="AndroidPluginSetup.psauxComm.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="psauxCommActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="processEnvironment">
+          <Properties>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+              <ResourceString bundle="org/myproject/vf/Bundle.properties" key="AndroidPluginSetup.processEnvironment.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="processEnvironmentActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="processListPsxview">
+          <Properties>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+              <ResourceString bundle="org/myproject/vf/Bundle.properties" key="AndroidPluginSetup.processListPsxview.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="processListPsxviewActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="processListKmemCache">
+          <Properties>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+              <ResourceString bundle="org/myproject/vf/Bundle.properties" key="AndroidPluginSetup.processListKmemCache.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="processListKmemCacheActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="routingCache">
+          <Properties>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+              <ResourceString bundle="org/myproject/vf/Bundle.properties" key="AndroidPluginSetup.routingCache.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="routingCacheActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="slabinfoComm">
+          <Properties>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+              <ResourceString bundle="org/myproject/vf/Bundle.properties" key="AndroidPluginSetup.slabinfoComm.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="slabinfoCommActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="listThreads">
+          <Properties>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+              <ResourceString bundle="org/myproject/vf/Bundle.properties" key="AndroidPluginSetup.listThreads.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="listThreadsActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="listVma">
+          <Properties>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+              <ResourceString bundle="org/myproject/vf/Bundle.properties" key="AndroidPluginSetup.listVma.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="listVmaActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
