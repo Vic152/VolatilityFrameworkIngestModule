@@ -212,7 +212,7 @@ public class VfIngestModule implements FileIngestModule {
 
             //Produce the report in Autopsy
             try {
-                Case.getCurrentCase().addReport(outputDirPath.toString() + "\\" + imageNameWOExt + "_" + volPlugin + dateString + ".txt", VfIngestFactoryAdapter.getModuleName(), volPlugin + " run on " + imageName);
+                Case.getCurrentCase().addReport(outputDirPath.toString() + "\\" + imageNameWOExt + "_" + volPlugin + dateString + ".txt", VfIngestFactoryAdapter.getModuleName(), volPlugin + " analysed " + imageName);
             } catch (TskCoreException ex) {
                 Exceptions.printStackTrace(ex);
             }
