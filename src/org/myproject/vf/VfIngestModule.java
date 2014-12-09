@@ -137,8 +137,16 @@ public class VfIngestModule implements FileIngestModule {
 
         //for loop to run all the selected plugins
         for (int i = 0; i < numberOfPlugins; i++) {
+            
+            //if job is cancelled by user
+            if (this.context.isJobCancelled() == true) {
 
-        //get current plugin to run
+                System.out.println("CANCELED");
+                return IngestModule.ProcessResult.OK;
+
+            }
+
+            //get current plugin to run
             String volPlugin = settings.getVolPlugins().get(i).toString();
             System.out.println("VOL PLUGIN " + volPlugin + i);
 
@@ -200,7 +208,7 @@ public class VfIngestModule implements FileIngestModule {
                 Exceptions.printStackTrace(ex);
             }
 
-        //run porocess
+            //run porocess
             // int exitValue = ExecUtil.execute(pb, new FileIngestModuleProcessTerminator(this.context));
             try {
                 Process p = pb.start();
@@ -209,6 +217,7 @@ public class VfIngestModule implements FileIngestModule {
             } catch (IOException | InterruptedException ex) {
                 Exceptions.printStackTrace(ex);
             }
+            
 
             //Produce the report in Autopsy
             try {
@@ -216,6 +225,8 @@ public class VfIngestModule implements FileIngestModule {
             } catch (TskCoreException ex) {
                 Exceptions.printStackTrace(ex);
             }
+
+            return IngestModule.ProcessResult.OK;
 
         } //end of for loop
 

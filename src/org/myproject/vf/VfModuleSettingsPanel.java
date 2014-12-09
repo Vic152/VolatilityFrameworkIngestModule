@@ -130,7 +130,7 @@ public class VfModuleSettingsPanel extends IngestModuleIngestJobSettingsPanel {
 
             aps.setVisible(true);
             
-               //Set Volatility Framework profile
+            //Set Volatility Framework profile
             settings.setVolProfile(aps.volProfile);
 
             //Set Plugins
