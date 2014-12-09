@@ -41,7 +41,6 @@ public class AndroidPluginSetup extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        saveAndroidSettingsButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         pstree = new javax.swing.JCheckBox();
@@ -94,19 +93,24 @@ public class AndroidPluginSetup extends javax.swing.JDialog {
         slabinfoComm = new javax.swing.JCheckBox();
         listThreads = new javax.swing.JCheckBox();
         listVma = new javax.swing.JCheckBox();
+        jSeparator1 = new javax.swing.JSeparator();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jSeparator2 = new javax.swing.JSeparator();
+        jSeparator3 = new javax.swing.JSeparator();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jSeparator7 = new javax.swing.JSeparator();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jSeparator4 = new javax.swing.JSeparator();
         androidVolProfile = new javax.swing.JTextField();
+        saveAndroidSettingsButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle(org.openide.util.NbBundle.getMessage(AndroidPluginSetup.class, "AndroidPluginSetup.title")); // NOI18N
         setModal(true);
         setResizable(false);
-
-        org.openide.awt.Mnemonics.setLocalizedText(saveAndroidSettingsButton, org.openide.util.NbBundle.getMessage(AndroidPluginSetup.class, "AndroidPluginSetup.saveAndroidSettingsButton.text")); // NOI18N
-        saveAndroidSettingsButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                saveAndroidSettingsButtonActionPerformed(evt);
-            }
-        });
 
         org.openide.awt.Mnemonics.setLocalizedText(jLabel1, org.openide.util.NbBundle.getMessage(AndroidPluginSetup.class, "AndroidPluginSetup.jLabel1.text")); // NOI18N
 
@@ -434,197 +438,264 @@ public class AndroidPluginSetup extends javax.swing.JDialog {
             }
         });
 
+        jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jSeparator1.setEnabled(false);
+        jSeparator1.setName(""); // NOI18N
+
+        org.openide.awt.Mnemonics.setLocalizedText(jLabel8, org.openide.util.NbBundle.getMessage(AndroidPluginSetup.class, "AndroidPluginSetup.jLabel8.text")); // NOI18N
+
+        org.openide.awt.Mnemonics.setLocalizedText(jLabel9, org.openide.util.NbBundle.getMessage(AndroidPluginSetup.class, "AndroidPluginSetup.jLabel9.text")); // NOI18N
+
+        org.openide.awt.Mnemonics.setLocalizedText(jLabel10, org.openide.util.NbBundle.getMessage(AndroidPluginSetup.class, "AndroidPluginSetup.jLabel10.text")); // NOI18N
+
+        org.openide.awt.Mnemonics.setLocalizedText(jLabel11, org.openide.util.NbBundle.getMessage(AndroidPluginSetup.class, "AndroidPluginSetup.jLabel11.text")); // NOI18N
+
+        org.openide.awt.Mnemonics.setLocalizedText(jLabel12, org.openide.util.NbBundle.getMessage(AndroidPluginSetup.class, "AndroidPluginSetup.jLabel12.text")); // NOI18N
+
+        org.openide.awt.Mnemonics.setLocalizedText(jLabel13, org.openide.util.NbBundle.getMessage(AndroidPluginSetup.class, "AndroidPluginSetup.jLabel13.text")); // NOI18N
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(checkSyscall)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel2))
-                    .addComponent(checkSyscallArm)
-                    .addComponent(limeInfo)
-                    .addComponent(arpTable)
-                    .addComponent(linuxBanner)
-                    .addComponent(bashHistory)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(psauxComm)
+                    .addComponent(pstree)
+                    .addComponent(pidHashTable)
+                    .addComponent(processListPsxview)
+                    .addComponent(listOpenFiles)
+                    .addComponent(pslist)
+                    .addComponent(processMaps)
+                    .addComponent(processListKmemCache, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(processMapsRedBlack)
+                    .addComponent(loadedKernelModules)
+                    .addComponent(enumerateFiles)
+                    .addComponent(listThreads)
                     .addComponent(bashEnvVar)
                     .addComponent(bashHashTable)
-                    .addComponent(checkAfInfo)
-                    .addComponent(checkCredsStruct)
-                    .addComponent(checkEvt)
-                    .addComponent(checkModules)
-                    .addComponent(ifconfigComm)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(enumerateFiles)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel3))
-                    .addComponent(dentryCache)
-                    .addComponent(kernelDebugBuffer)
-                    .addComponent(findELF)
-                    .addComponent(processListKmemCache)
-                    .addComponent(pslist)
-                    .addComponent(processListPsxview)
-                    .addComponent(pstree)
-                    .addComponent(listThreads))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(listVma)
-                    .addComponent(slabinfoComm)
-                    .addComponent(processEnvironment)
-                    .addComponent(psauxComm)
-                    .addComponent(pltHook)
-                    .addComponent(pidHashTable)
-                    .addComponent(netstat)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(mountedDevices)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel7))
-                    .addComponent(suspiciousProcessMappings)
-                    .addComponent(listOpenFiles)
-                    .addComponent(loadedKernelModules)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(appsPromSoc)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel6))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(libraryList)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel5))
+                    .addComponent(hiddenKernelModules)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(ldrModules)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel4))
+                    .addComponent(bashHistory)
+                    .addComponent(suspiciousProcessMappings)
+                    .addComponent(processEnvironment)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(libraryList)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel5))
+                    .addComponent(jSeparator3, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)
+                    .addComponent(jSeparator2)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel10))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11)
+                    .addComponent(checkAfInfo)
+                    .addComponent(checkCredsStruct)
+                    .addComponent(checkSyscallArm)
+                    .addComponent(checkSyscall)
+                    .addComponent(checkModules)
                     .addComponent(keyboardNotifiers)
-                    .addComponent(hiddenKernelModules)
-                    .addComponent(iomemComm)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(checkEvt)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel2))
+                    .addComponent(linuxBanner)
+                    .addComponent(findELF)
+                    .addComponent(listVma)
+                    .addComponent(dentryCache)
                     .addComponent(mountedDevicesKmemCache)
-                    .addComponent(netfilterHooks)
-                    .addComponent(processMaps)
-                    .addComponent(processMapsRedBlack)
-                    .addComponent(routingCache))
-                .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(mountedDevices)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel7))
+                    .addComponent(slabinfoComm)
+                    .addComponent(iomemComm)
+                    .addComponent(kernelDebugBuffer)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(pltHook)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel3))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(arpTable)
+                        .addComponent(jLabel12)
+                        .addComponent(ifconfigComm)
+                        .addComponent(routingCache)
+                        .addComponent(netfilterHooks)
+                        .addComponent(netstat)
+                        .addComponent(limeInfo)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(appsPromSoc)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jLabel6))
+                        .addComponent(jSeparator4))
+                    .addComponent(jLabel13))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(limeInfo)
-                    .addComponent(hiddenKernelModules))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(arpTable)
-                    .addComponent(iomemComm))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(linuxBanner)
-                    .addComponent(keyboardNotifiers))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bashHistory)
-                    .addComponent(ldrModules)
-                    .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bashEnvVar)
-                    .addComponent(libraryList)
-                    .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bashHashTable)
-                    .addComponent(appsPromSoc)
-                    .addComponent(jLabel6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(checkAfInfo)
-                    .addComponent(loadedKernelModules))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(checkCredsStruct)
-                    .addComponent(listOpenFiles))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(checkEvt)
-                    .addComponent(suspiciousProcessMappings))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(checkModules)
-                    .addComponent(mountedDevices)
-                    .addComponent(jLabel7))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(checkSyscall)
-                    .addComponent(jLabel2)
-                    .addComponent(mountedDevicesKmemCache))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(checkSyscallArm)
-                    .addComponent(netfilterHooks))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(dentryCache)
-                    .addComponent(netstat))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(kernelDebugBuffer)
-                    .addComponent(pidHashTable))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(findELF)
-                    .addComponent(pltHook))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ifconfigComm)
-                    .addComponent(processMaps))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(enumerateFiles)
-                    .addComponent(jLabel3)
-                    .addComponent(processMapsRedBlack))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(pslist)
-                    .addComponent(routingCache))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(processEnvironment)
-                    .addComponent(processListKmemCache))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(psauxComm)
-                    .addComponent(processListPsxview))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(pstree)
-                    .addComponent(slabinfoComm))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 2, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(listThreads)
-                    .addComponent(listVma)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(pslist)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(processListKmemCache)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(processListPsxview)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(psauxComm)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(pstree)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(pidHashTable)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(listOpenFiles)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(enumerateFiles)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(listThreads)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(processEnvironment)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(libraryList)
+                            .addComponent(jLabel5))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(suspiciousProcessMappings)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(processMaps)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(processMapsRedBlack)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(bashHashTable)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(bashHistory)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(bashEnvVar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(ldrModules)
+                            .addComponent(jLabel4))
+                        .addGap(10, 10, 10)
+                        .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(1, 1, 1)
+                        .addComponent(jLabel10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(hiddenKernelModules)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(loadedKernelModules, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(88, 88, 88))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jSeparator1)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(jLabel13)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(kernelDebugBuffer)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(iomemComm)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(slabinfoComm)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(mountedDevices)
+                                .addComponent(jLabel7))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(mountedDevicesKmemCache)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(dentryCache)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(listVma)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(linuxBanner)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(findELF)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(pltHook)
+                                .addComponent(jLabel3))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jLabel12)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(arpTable)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(ifconfigComm)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(routingCache)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(netfilterHooks)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(netstat)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(limeInfo)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(appsPromSoc)
+                                .addComponent(jLabel6))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jLabel11)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(checkAfInfo)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(checkCredsStruct)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(checkSyscallArm)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(checkSyscall)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(checkModules)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(keyboardNotifiers)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(checkEvt)
+                                .addComponent(jLabel2)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         androidVolProfile.setText(org.openide.util.NbBundle.getMessage(AndroidPluginSetup.class, "AndroidPluginSetup.androidVolProfile.text")); // NOI18N
+
+        org.openide.awt.Mnemonics.setLocalizedText(saveAndroidSettingsButton, org.openide.util.NbBundle.getMessage(AndroidPluginSetup.class, "AndroidPluginSetup.saveAndroidSettingsButton.text")); // NOI18N
+        saveAndroidSettingsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveAndroidSettingsButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(357, Short.MAX_VALUE)
-                        .addComponent(saveAndroidSettingsButton))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(androidVolProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 233, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(18, 18, 18)
+                    .addComponent(jLabel1)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(androidVolProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE))
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGap(0, 2, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(saveAndroidSettingsButton)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -634,9 +705,9 @@ public class AndroidPluginSetup extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(androidVolProfile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
                 .addComponent(saveAndroidSettingsButton)
                 .addContainerGap())
         );
@@ -654,468 +725,53 @@ public class AndroidPluginSetup extends javax.swing.JDialog {
         AndroidPluginSetup.this.dispose();
     }//GEN-LAST:event_saveAndroidSettingsButtonActionPerformed
 
-    //Set Volatility Plugins list
-    private void pstreeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pstreeActionPerformed
+    private void listVmaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listVmaActionPerformed
         // TODO add your handling code here:
-        //line to add plugin to ArrayList if box selected
-        if (pstree.isSelected()) {
+        if (listVma.isSelected()) {
 
-            plugins.add("linux_pstree");
- 
+            plugins.add("linux_vma_cache");
         }
-        else if(!pstree.isSelected()){
+        else if(!listVma.isSelected()){
             //line to remove plugin from ArrayList if box not selected
-            plugins.remove(plugins.indexOf("linux_pstree"));
-            
+            plugins.remove(plugins.indexOf("linux_vma_cache"));
         }
-    }//GEN-LAST:event_pstreeActionPerformed
+    }//GEN-LAST:event_listVmaActionPerformed
 
-    private void pslistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pslistActionPerformed
+    private void listThreadsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listThreadsActionPerformed
         // TODO add your handling code here:
-        if (pslist.isSelected()) {
-            //line to add plugin to ArrayList if box selected
-            plugins.add("linux_pslist");
-        }
-        else if(!pslist.isSelected()){
-            //line to remove plugin to ArrayList if box selected
-            plugins.remove(plugins.indexOf("linux_pslist"));
-        }
-       
-    }//GEN-LAST:event_pslistActionPerformed
+        if (listThreads.isSelected()) {
 
-    private void limeInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limeInfoActionPerformed
-        // TODO add your handling code here:
-        if (limeInfo.isSelected()) {
-
-            plugins.add("limeinfo");
+            plugins.add("linux_threads");
         }
-        else if(!limeInfo.isSelected()){
-            //line to remove plugin to ArrayList if box selected
-            plugins.remove(plugins.indexOf("limeinfo"));   
-        }
-    }//GEN-LAST:event_limeInfoActionPerformed
-
-    private void arpTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_arpTableActionPerformed
-        // TODO add your handling code here:
-        if (arpTable.isSelected()) {
-
-            plugins.add("linux_arp");
-        }
-        else if(!arpTable.isSelected()){
-            //line to remove plugin to ArrayList if box selected
-            plugins.remove(plugins.indexOf("linux_arp"));   
-        }
-    }//GEN-LAST:event_arpTableActionPerformed
-
-    private void linuxBannerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_linuxBannerActionPerformed
-        // TODO add your handling code here:
-        if (linuxBanner.isSelected()) {
-
-            plugins.add("linux_banner");
-        }
-        else if(!linuxBanner.isSelected()){
-            //line to remove plugin to ArrayList if box selected
-            plugins.remove(plugins.indexOf("linux_banner"));   
-        }
-    }//GEN-LAST:event_linuxBannerActionPerformed
-
-    private void bashHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bashHistoryActionPerformed
-        // TODO add your handling code here:
-        if (bashHistory.isSelected()) {
-
-            plugins.add("linux_bash");
-        }
-        else if(!bashHistory.isSelected()){
-            //line to remove plugin to ArrayList if box selected
-            plugins.remove(plugins.indexOf("linux_bash"));   
-        }
-    }//GEN-LAST:event_bashHistoryActionPerformed
-
-    private void bashEnvVarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bashEnvVarActionPerformed
-        // TODO add your handling code here:
-        if (bashEnvVar.isSelected()) {
-
-            plugins.add("linux_bash_env");
-        }
-        else if(!bashEnvVar.isSelected()){
-            //line to remove plugin to ArrayList if box selected
-            plugins.remove(plugins.indexOf("linux_bash_env"));   
-        }
-    }//GEN-LAST:event_bashEnvVarActionPerformed
-
-    private void bashHashTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bashHashTableActionPerformed
-        // TODO add your handling code here:
-        if (bashHashTable.isSelected()) {
-
-            plugins.add("linux_bash_hash");
-        }
-        else if(!bashHashTable.isSelected()){
-            //line to remove plugin to ArrayList if box selected
-            plugins.remove(plugins.indexOf("linux_bash_hash"));   
-        }
-    }//GEN-LAST:event_bashHashTableActionPerformed
-
-    private void checkAfInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkAfInfoActionPerformed
-        // TODO add your handling code here:
-        //line to add plugin to ArrayList if box selected
-        if (checkAfInfo.isSelected()) {
-
-            plugins.add("linux_check_afinfo");
-        }
-        else if(!checkAfInfo.isSelected()){
+        else if(!listThreads.isSelected()){
             //line to remove plugin from ArrayList if box not selected
-            plugins.remove(plugins.indexOf("linux_check_afinfo"));   
+            plugins.remove(plugins.indexOf("linux_threads"));
         }
-    }//GEN-LAST:event_checkAfInfoActionPerformed
+    }//GEN-LAST:event_listThreadsActionPerformed
 
-    private void checkCredsStructActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkCredsStructActionPerformed
+    private void slabinfoCommActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_slabinfoCommActionPerformed
         // TODO add your handling code here:
-        //line to add plugin to ArrayList if box selected
-        if (checkCredsStruct.isSelected()) {
+        if (slabinfoComm.isSelected()) {
 
-            plugins.add("linux_check_creds");
+            plugins.add("linux_slabinfo");
         }
-        else if(!checkCredsStruct.isSelected()){
+        else if(!slabinfoComm.isSelected()){
             //line to remove plugin from ArrayList if box not selected
-            plugins.remove(plugins.indexOf("linux_check_creds"));   
+            plugins.remove(plugins.indexOf("linux_slabinfo"));
         }
-    }//GEN-LAST:event_checkCredsStructActionPerformed
+    }//GEN-LAST:event_slabinfoCommActionPerformed
 
-    private void checkEvtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkEvtActionPerformed
+    private void routingCacheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_routingCacheActionPerformed
         // TODO add your handling code here:
-        if (checkEvt.isSelected()) {
+        if (routingCache.isSelected()) {
 
-            plugins.add("linux_check_evt_arm");
+            plugins.add("linux_route_cache");
         }
-        else if(!checkEvt.isSelected()){
+        else if(!routingCache.isSelected()){
             //line to remove plugin from ArrayList if box not selected
-            plugins.remove(plugins.indexOf("linux_check_evt_arm"));   
+            plugins.remove(plugins.indexOf("linux_route_cache"));
         }
-    }//GEN-LAST:event_checkEvtActionPerformed
-
-    private void checkModulesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkModulesActionPerformed
-        // TODO add your handling code here:
-        if (checkModules.isSelected()) {
-
-            plugins.add("linux_check_modules");
-        }
-        else if(!checkModules.isSelected()){
-            //line to remove plugin from ArrayList if box not selected
-            plugins.remove(plugins.indexOf("linux_check_modules"));   
-        }
-    }//GEN-LAST:event_checkModulesActionPerformed
-
-    private void checkSyscallActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkSyscallActionPerformed
-        // TODO add your handling code here:
-        if (checkSyscall.isSelected()) {
-
-            plugins.add("linux_check_syscall");
-        }
-        else if(!checkSyscall.isSelected()){
-            //line to remove plugin from ArrayList if box not selected
-            plugins.remove(plugins.indexOf("linux_check_syscall"));   
-        }
-    }//GEN-LAST:event_checkSyscallActionPerformed
-
-    private void checkSyscallArmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkSyscallArmActionPerformed
-        // TODO add your handling code here:
-        if (checkSyscallArm.isSelected()) {
-
-            plugins.add("linux_check_syscall_arm");
-        }
-        else if(!checkSyscallArm.isSelected()){
-            //line to remove plugin from ArrayList if box not selected
-            plugins.remove(plugins.indexOf("linux_check_syscall_arm"));   
-        }
-    }//GEN-LAST:event_checkSyscallArmActionPerformed
-
-    private void dentryCacheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dentryCacheActionPerformed
-        // TODO add your handling code here:
-         if (dentryCache.isSelected()) {
-
-            plugins.add("linux_dentry_cache");
-        }
-        else if(!dentryCache.isSelected()){
-            //line to remove plugin from ArrayList if box not selected
-            plugins.remove(plugins.indexOf("linux_dentry_cache"));   
-        }
-    }//GEN-LAST:event_dentryCacheActionPerformed
-
-    private void kernelDebugBufferActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kernelDebugBufferActionPerformed
-        // TODO add your handling code here:
-         if (kernelDebugBuffer.isSelected()) {
-
-            plugins.add("linux_dmesg");
-        }
-        else if(!kernelDebugBuffer.isSelected()){
-            //line to remove plugin from ArrayList if box not selected
-            plugins.remove(plugins.indexOf("linux_dmesg"));   
-        }
-    }//GEN-LAST:event_kernelDebugBufferActionPerformed
-
-    private void findELFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_findELFActionPerformed
-        // TODO add your handling code here:
-         if (findELF.isSelected()) {
-
-            plugins.add("linux_elfs");
-        }
-        else if(!findELF.isSelected()){
-            //line to remove plugin from ArrayList if box not selected
-            plugins.remove(plugins.indexOf("linux_elfs"));   
-        }
-    }//GEN-LAST:event_findELFActionPerformed
-
-    private void ifconfigCommActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ifconfigCommActionPerformed
-        // TODO add your handling code here:
-        if (ifconfigComm.isSelected()) {
-
-            plugins.add("linux_ifconfig");
-        }
-        else if(!ifconfigComm.isSelected()){
-            //line to remove plugin from ArrayList if box not selected
-            plugins.remove(plugins.indexOf("linux_ifconfig"));   
-        }
-    }//GEN-LAST:event_ifconfigCommActionPerformed
-
-    private void enumerateFilesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enumerateFilesActionPerformed
-        // TODO add your handling code here:
-        if (enumerateFiles.isSelected()) {
-
-            plugins.add("linux_enumerate_files");
-        }
-        else if(!enumerateFiles.isSelected()){
-            //line to remove plugin from ArrayList if box not selected
-            plugins.remove(plugins.indexOf("linux_enumerate_files"));   
-        }
-    }//GEN-LAST:event_enumerateFilesActionPerformed
-
-    private void hiddenKernelModulesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hiddenKernelModulesActionPerformed
-        // TODO add your handling code here:
-        if (hiddenKernelModules.isSelected()) {
-
-            plugins.add("linux_hidden_modules");
-        }
-        else if(!hiddenKernelModules.isSelected()){
-            //line to remove plugin from ArrayList if box not selected
-            plugins.remove(plugins.indexOf("linux_hidden_modules"));   
-        }
-    }//GEN-LAST:event_hiddenKernelModulesActionPerformed
-
-    private void iomemCommActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iomemCommActionPerformed
-        // TODO add your handling code here:
-        if (iomemComm.isSelected()) {
-
-            plugins.add("linux_iomem");
-        }
-        else if(!iomemComm.isSelected()){
-            //line to remove plugin from ArrayList if box not selected
-            plugins.remove(plugins.indexOf("linux_iomem"));   
-        }
-    }//GEN-LAST:event_iomemCommActionPerformed
-
-    private void keyboardNotifiersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_keyboardNotifiersActionPerformed
-        // TODO add your handling code here:
-        if (keyboardNotifiers.isSelected()) {
-
-            plugins.add("linux_keyboard_notifiers");
-        }
-        else if(!keyboardNotifiers.isSelected()){
-            //line to remove plugin from ArrayList if box not selected
-            plugins.remove(plugins.indexOf("linux_keyboard_notifiers"));   
-        }
-    }//GEN-LAST:event_keyboardNotifiersActionPerformed
-
-    private void ldrModulesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ldrModulesActionPerformed
-        // TODO add your handling code here:
-        if (ldrModules.isSelected()) {
-
-            plugins.add("linux_ldrmodules");
-        }
-        else if(!ldrModules.isSelected()){
-            //line to remove plugin from ArrayList if box not selected
-            plugins.remove(plugins.indexOf("linux_ldrmodules"));   
-        }
-    }//GEN-LAST:event_ldrModulesActionPerformed
-
-    private void libraryListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_libraryListActionPerformed
-        // TODO add your handling code here:
-        if (libraryList.isSelected()) {
-
-            plugins.add("linux_library_list");
-        }
-        else if(!libraryList.isSelected()){
-            //line to remove plugin from ArrayList if box not selected
-            plugins.remove(plugins.indexOf("linux_library_list"));   
-        }
-    }//GEN-LAST:event_libraryListActionPerformed
-
-    private void appsPromSocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_appsPromSocActionPerformed
-        // TODO add your handling code here:
-        if (appsPromSoc.isSelected()) {
-
-            plugins.add("linux_list_raw");
-        }
-        else if(!appsPromSoc.isSelected()){
-            //line to remove plugin from ArrayList if box not selected
-            plugins.remove(plugins.indexOf("linux_list_raw"));   
-        }
-    }//GEN-LAST:event_appsPromSocActionPerformed
-
-    private void loadedKernelModulesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadedKernelModulesActionPerformed
-        // TODO add your handling code here:
-        if (loadedKernelModules.isSelected()) {
-
-            plugins.add("linux_lsmod");
-        }
-        else if(!loadedKernelModules.isSelected()){
-            //line to remove plugin from ArrayList if box not selected
-            plugins.remove(plugins.indexOf("linux_lsmod"));   
-        }
-    }//GEN-LAST:event_loadedKernelModulesActionPerformed
-
-    private void listOpenFilesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listOpenFilesActionPerformed
-        // TODO add your handling code here:
-         if (listOpenFiles.isSelected()) {
-
-            plugins.add("linux_lsof");
-        }
-        else if(!listOpenFiles.isSelected()){
-            //line to remove plugin from ArrayList if box not selected
-            plugins.remove(plugins.indexOf("linux_lsof"));   
-        }
-    }//GEN-LAST:event_listOpenFilesActionPerformed
-
-    private void suspiciousProcessMappingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_suspiciousProcessMappingsActionPerformed
-        // TODO add your handling code here:
-        if (suspiciousProcessMappings.isSelected()) {
-
-            plugins.add("linux_malfind");
-        }
-        else if(!suspiciousProcessMappings.isSelected()){
-            //line to remove plugin from ArrayList if box not selected
-            plugins.remove(plugins.indexOf("linux_malfind"));   
-        }
-    }//GEN-LAST:event_suspiciousProcessMappingsActionPerformed
-
-    private void mountedDevicesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mountedDevicesActionPerformed
-        // TODO add your handling code here:        
-        if (mountedDevices.isSelected()) {
-
-            plugins.add("linux_mount");
-        }
-        else if(!mountedDevices.isSelected()){
-            //line to remove plugin from ArrayList if box not selected
-            plugins.remove(plugins.indexOf("linux_mount"));   
-        }
-    }//GEN-LAST:event_mountedDevicesActionPerformed
-
-    private void mountedDevicesKmemCacheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mountedDevicesKmemCacheActionPerformed
-        // TODO add your handling code here:
-        if (mountedDevices.isSelected()) {
-
-            plugins.add("linux_mount_cache");
-        }
-        else if(!mountedDevices.isSelected()){
-            //line to remove plugin from ArrayList if box not selected
-            plugins.remove(plugins.indexOf("linux_mount_cache"));   
-        }
-    }//GEN-LAST:event_mountedDevicesKmemCacheActionPerformed
-
-    private void netfilterHooksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_netfilterHooksActionPerformed
-        // TODO add your handling code here:
-        if (netfilterHooks.isSelected()) {
-
-            plugins.add("linux_netfilter");
-        }
-        else if(!netfilterHooks.isSelected()){
-            //line to remove plugin from ArrayList if box not selected
-            plugins.remove(plugins.indexOf("linux_netfilter"));   
-        }
-    }//GEN-LAST:event_netfilterHooksActionPerformed
-
-    private void netstatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_netstatActionPerformed
-        // TODO add your handling code here:
-        if (netstat.isSelected()) {
-
-            plugins.add("linux_netstat");
-        }
-        else if(!netstat.isSelected()){
-            //line to remove plugin from ArrayList if box not selected
-            plugins.remove(plugins.indexOf("linux_netstat"));   
-        }
-    }//GEN-LAST:event_netstatActionPerformed
-
-    private void pidHashTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pidHashTableActionPerformed
-        // TODO add your handling code here:
-        if (pidHashTable.isSelected()) {
-
-            plugins.add("linux_pidhashtable");
-        }
-        else if(!pidHashTable.isSelected()){
-            //line to remove plugin from ArrayList if box not selected
-            plugins.remove(plugins.indexOf("linux_pidhashtable"));   
-        }
-    }//GEN-LAST:event_pidHashTableActionPerformed
-
-    private void pltHookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pltHookActionPerformed
-        // TODO add your handling code here:
-        if (pltHook.isSelected()) {
-
-            plugins.add("linux_plthook");
-        }
-        else if(!pltHook.isSelected()){
-            //line to remove plugin from ArrayList if box not selected
-            plugins.remove(plugins.indexOf("linux_plthook"));   
-        }
-    }//GEN-LAST:event_pltHookActionPerformed
-
-    private void processMapsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_processMapsActionPerformed
-        // TODO add your handling code here:
-        if (processMaps.isSelected()) {
-
-            plugins.add("linux_proc_maps");
-        }
-        else if(!processMaps.isSelected()){
-            //line to remove plugin from ArrayList if box not selected
-            plugins.remove(plugins.indexOf("linux_proc_maps"));  
-        }
-    }//GEN-LAST:event_processMapsActionPerformed
-
-    private void processMapsRedBlackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_processMapsRedBlackActionPerformed
-        // TODO add your handling code here:
-        if (processMapsRedBlack.isSelected()) {
-
-            plugins.add("linux_proc_maps_rb");
-        }
-        else if(!processMapsRedBlack.isSelected()){
-            //line to remove plugin from ArrayList if box not selected
-            plugins.remove(plugins.indexOf("linux_proc_maps_rb"));  
-        }
-    }//GEN-LAST:event_processMapsRedBlackActionPerformed
-
-    private void psauxCommActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_psauxCommActionPerformed
-        // TODO add your handling code here:
-        if (psauxComm.isSelected()) {
-
-            plugins.add("linux_psaux");
-        }
-        else if(!psauxComm.isSelected()){
-            //line to remove plugin from ArrayList if box not selected
-            plugins.remove(plugins.indexOf("linux_psaux"));  
-        }
-    }//GEN-LAST:event_psauxCommActionPerformed
-
-    private void processEnvironmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_processEnvironmentActionPerformed
-        // TODO add your handling code here:
-        if (processEnvironment.isSelected()) {
-
-            plugins.add("linux_psenv");
-        }
-        else if(!processEnvironment.isSelected()){
-            //line to remove plugin from ArrayList if box not selected
-            plugins.remove(plugins.indexOf("linux_psenv"));  
-        }
-    }//GEN-LAST:event_processEnvironmentActionPerformed
+    }//GEN-LAST:event_routingCacheActionPerformed
 
     private void processListKmemCacheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_processListKmemCacheActionPerformed
         // TODO add your handling code here:
@@ -1125,7 +781,7 @@ public class AndroidPluginSetup extends javax.swing.JDialog {
         }
         else if(!processListKmemCache.isSelected()){
             //line to remove plugin from ArrayList if box not selected
-            plugins.remove(plugins.indexOf("linux_pslist_cache"));  
+            plugins.remove(plugins.indexOf("linux_pslist_cache"));
         }
     }//GEN-LAST:event_processListKmemCacheActionPerformed
 
@@ -1137,57 +793,472 @@ public class AndroidPluginSetup extends javax.swing.JDialog {
         }
         else if(!processListPsxview.isSelected()){
             //line to remove plugin from ArrayList if box not selected
-            plugins.remove(plugins.indexOf("linux_psxview"));  
+            plugins.remove(plugins.indexOf("linux_psxview"));
         }
     }//GEN-LAST:event_processListPsxviewActionPerformed
 
-    private void routingCacheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_routingCacheActionPerformed
+    private void processEnvironmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_processEnvironmentActionPerformed
         // TODO add your handling code here:
-        if (routingCache.isSelected()) {
+        if (processEnvironment.isSelected()) {
 
-            plugins.add("linux_route_cache");
+            plugins.add("linux_psenv");
         }
-        else if(!routingCache.isSelected()){
+        else if(!processEnvironment.isSelected()){
             //line to remove plugin from ArrayList if box not selected
-            plugins.remove(plugins.indexOf("linux_route_cache"));  
+            plugins.remove(plugins.indexOf("linux_psenv"));
         }
-    }//GEN-LAST:event_routingCacheActionPerformed
+    }//GEN-LAST:event_processEnvironmentActionPerformed
 
-    private void slabinfoCommActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_slabinfoCommActionPerformed
+    private void psauxCommActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_psauxCommActionPerformed
         // TODO add your handling code here:
-        if (slabinfoComm.isSelected()) {
+        if (psauxComm.isSelected()) {
 
-            plugins.add("linux_slabinfo");
+            plugins.add("linux_psaux");
         }
-        else if(!slabinfoComm.isSelected()){
+        else if(!psauxComm.isSelected()){
             //line to remove plugin from ArrayList if box not selected
-            plugins.remove(plugins.indexOf("linux_slabinfo"));  
+            plugins.remove(plugins.indexOf("linux_psaux"));
         }
-    }//GEN-LAST:event_slabinfoCommActionPerformed
+    }//GEN-LAST:event_psauxCommActionPerformed
 
-    private void listThreadsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listThreadsActionPerformed
+    private void processMapsRedBlackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_processMapsRedBlackActionPerformed
         // TODO add your handling code here:
-        if (listThreads.isSelected()) {
+        if (processMapsRedBlack.isSelected()) {
 
-            plugins.add("linux_threads");
+            plugins.add("linux_proc_maps_rb");
         }
-        else if(!listThreads.isSelected()){
+        else if(!processMapsRedBlack.isSelected()){
             //line to remove plugin from ArrayList if box not selected
-            plugins.remove(plugins.indexOf("linux_threads"));  
+            plugins.remove(plugins.indexOf("linux_proc_maps_rb"));
         }
-    }//GEN-LAST:event_listThreadsActionPerformed
+    }//GEN-LAST:event_processMapsRedBlackActionPerformed
 
-    private void listVmaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listVmaActionPerformed
+    private void processMapsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_processMapsActionPerformed
         // TODO add your handling code here:
-        if (listVma.isSelected()) {
+        if (processMaps.isSelected()) {
 
-            plugins.add("linux_vma_cache");
+            plugins.add("linux_proc_maps");
         }
-        else if(!listVma.isSelected()){
+        else if(!processMaps.isSelected()){
             //line to remove plugin from ArrayList if box not selected
-            plugins.remove(plugins.indexOf("linux_vma_cache"));  
+            plugins.remove(plugins.indexOf("linux_proc_maps"));
         }
-    }//GEN-LAST:event_listVmaActionPerformed
+    }//GEN-LAST:event_processMapsActionPerformed
+
+    private void pltHookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pltHookActionPerformed
+        // TODO add your handling code here:
+        if (pltHook.isSelected()) {
+
+            plugins.add("linux_plthook");
+        }
+        else if(!pltHook.isSelected()){
+            //line to remove plugin from ArrayList if box not selected
+            plugins.remove(plugins.indexOf("linux_plthook"));
+        }
+    }//GEN-LAST:event_pltHookActionPerformed
+
+    private void pidHashTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pidHashTableActionPerformed
+        // TODO add your handling code here:
+        if (pidHashTable.isSelected()) {
+
+            plugins.add("linux_pidhashtable");
+        }
+        else if(!pidHashTable.isSelected()){
+            //line to remove plugin from ArrayList if box not selected
+            plugins.remove(plugins.indexOf("linux_pidhashtable"));
+        }
+    }//GEN-LAST:event_pidHashTableActionPerformed
+
+    private void netstatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_netstatActionPerformed
+        // TODO add your handling code here:
+        if (netstat.isSelected()) {
+
+            plugins.add("linux_netstat");
+        }
+        else if(!netstat.isSelected()){
+            //line to remove plugin from ArrayList if box not selected
+            plugins.remove(plugins.indexOf("linux_netstat"));
+        }
+    }//GEN-LAST:event_netstatActionPerformed
+
+    private void netfilterHooksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_netfilterHooksActionPerformed
+        // TODO add your handling code here:
+        if (netfilterHooks.isSelected()) {
+
+            plugins.add("linux_netfilter");
+        }
+        else if(!netfilterHooks.isSelected()){
+            //line to remove plugin from ArrayList if box not selected
+            plugins.remove(plugins.indexOf("linux_netfilter"));
+        }
+    }//GEN-LAST:event_netfilterHooksActionPerformed
+
+    private void mountedDevicesKmemCacheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mountedDevicesKmemCacheActionPerformed
+        // TODO add your handling code here:
+        if (mountedDevices.isSelected()) {
+
+            plugins.add("linux_mount_cache");
+        }
+        else if(!mountedDevices.isSelected()){
+            //line to remove plugin from ArrayList if box not selected
+            plugins.remove(plugins.indexOf("linux_mount_cache"));
+        }
+    }//GEN-LAST:event_mountedDevicesKmemCacheActionPerformed
+
+    private void mountedDevicesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mountedDevicesActionPerformed
+        // TODO add your handling code here:
+        if (mountedDevices.isSelected()) {
+
+            plugins.add("linux_mount");
+        }
+        else if(!mountedDevices.isSelected()){
+            //line to remove plugin from ArrayList if box not selected
+            plugins.remove(plugins.indexOf("linux_mount"));
+        }
+    }//GEN-LAST:event_mountedDevicesActionPerformed
+
+    private void suspiciousProcessMappingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_suspiciousProcessMappingsActionPerformed
+        // TODO add your handling code here:
+        if (suspiciousProcessMappings.isSelected()) {
+
+            plugins.add("linux_malfind");
+        }
+        else if(!suspiciousProcessMappings.isSelected()){
+            //line to remove plugin from ArrayList if box not selected
+            plugins.remove(plugins.indexOf("linux_malfind"));
+        }
+    }//GEN-LAST:event_suspiciousProcessMappingsActionPerformed
+
+    private void listOpenFilesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listOpenFilesActionPerformed
+        // TODO add your handling code here:
+        if (listOpenFiles.isSelected()) {
+
+            plugins.add("linux_lsof");
+        }
+        else if(!listOpenFiles.isSelected()){
+            //line to remove plugin from ArrayList if box not selected
+            plugins.remove(plugins.indexOf("linux_lsof"));
+        }
+    }//GEN-LAST:event_listOpenFilesActionPerformed
+
+    private void loadedKernelModulesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadedKernelModulesActionPerformed
+        // TODO add your handling code here:
+        if (loadedKernelModules.isSelected()) {
+
+            plugins.add("linux_lsmod");
+        }
+        else if(!loadedKernelModules.isSelected()){
+            //line to remove plugin from ArrayList if box not selected
+            plugins.remove(plugins.indexOf("linux_lsmod"));
+        }
+    }//GEN-LAST:event_loadedKernelModulesActionPerformed
+
+    private void appsPromSocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_appsPromSocActionPerformed
+        // TODO add your handling code here:
+        if (appsPromSoc.isSelected()) {
+
+            plugins.add("linux_list_raw");
+        }
+        else if(!appsPromSoc.isSelected()){
+            //line to remove plugin from ArrayList if box not selected
+            plugins.remove(plugins.indexOf("linux_list_raw"));
+        }
+    }//GEN-LAST:event_appsPromSocActionPerformed
+
+    private void libraryListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_libraryListActionPerformed
+        // TODO add your handling code here:
+        if (libraryList.isSelected()) {
+
+            plugins.add("linux_library_list");
+        }
+        else if(!libraryList.isSelected()){
+            //line to remove plugin from ArrayList if box not selected
+            plugins.remove(plugins.indexOf("linux_library_list"));
+        }
+    }//GEN-LAST:event_libraryListActionPerformed
+
+    private void ldrModulesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ldrModulesActionPerformed
+        // TODO add your handling code here:
+        if (ldrModules.isSelected()) {
+
+            plugins.add("linux_ldrmodules");
+        }
+        else if(!ldrModules.isSelected()){
+            //line to remove plugin from ArrayList if box not selected
+            plugins.remove(plugins.indexOf("linux_ldrmodules"));
+        }
+    }//GEN-LAST:event_ldrModulesActionPerformed
+
+    private void keyboardNotifiersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_keyboardNotifiersActionPerformed
+        // TODO add your handling code here:
+        if (keyboardNotifiers.isSelected()) {
+
+            plugins.add("linux_keyboard_notifiers");
+        }
+        else if(!keyboardNotifiers.isSelected()){
+            //line to remove plugin from ArrayList if box not selected
+            plugins.remove(plugins.indexOf("linux_keyboard_notifiers"));
+        }
+    }//GEN-LAST:event_keyboardNotifiersActionPerformed
+
+    private void iomemCommActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iomemCommActionPerformed
+        // TODO add your handling code here:
+        if (iomemComm.isSelected()) {
+
+            plugins.add("linux_iomem");
+        }
+        else if(!iomemComm.isSelected()){
+            //line to remove plugin from ArrayList if box not selected
+            plugins.remove(plugins.indexOf("linux_iomem"));
+        }
+    }//GEN-LAST:event_iomemCommActionPerformed
+
+    private void hiddenKernelModulesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hiddenKernelModulesActionPerformed
+        // TODO add your handling code here:
+        if (hiddenKernelModules.isSelected()) {
+
+            plugins.add("linux_hidden_modules");
+        }
+        else if(!hiddenKernelModules.isSelected()){
+            //line to remove plugin from ArrayList if box not selected
+            plugins.remove(plugins.indexOf("linux_hidden_modules"));
+        }
+    }//GEN-LAST:event_hiddenKernelModulesActionPerformed
+
+    private void enumerateFilesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enumerateFilesActionPerformed
+        // TODO add your handling code here:
+        if (enumerateFiles.isSelected()) {
+
+            plugins.add("linux_enumerate_files");
+        }
+        else if(!enumerateFiles.isSelected()){
+            //line to remove plugin from ArrayList if box not selected
+            plugins.remove(plugins.indexOf("linux_enumerate_files"));
+        }
+    }//GEN-LAST:event_enumerateFilesActionPerformed
+
+    private void ifconfigCommActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ifconfigCommActionPerformed
+        // TODO add your handling code here:
+        if (ifconfigComm.isSelected()) {
+
+            plugins.add("linux_ifconfig");
+        }
+        else if(!ifconfigComm.isSelected()){
+            //line to remove plugin from ArrayList if box not selected
+            plugins.remove(plugins.indexOf("linux_ifconfig"));
+        }
+    }//GEN-LAST:event_ifconfigCommActionPerformed
+
+    private void findELFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_findELFActionPerformed
+        // TODO add your handling code here:
+        if (findELF.isSelected()) {
+
+            plugins.add("linux_elfs");
+        }
+        else if(!findELF.isSelected()){
+            //line to remove plugin from ArrayList if box not selected
+            plugins.remove(plugins.indexOf("linux_elfs"));
+        }
+    }//GEN-LAST:event_findELFActionPerformed
+
+    private void kernelDebugBufferActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kernelDebugBufferActionPerformed
+        // TODO add your handling code here:
+        if (kernelDebugBuffer.isSelected()) {
+
+            plugins.add("linux_dmesg");
+        }
+        else if(!kernelDebugBuffer.isSelected()){
+            //line to remove plugin from ArrayList if box not selected
+            plugins.remove(plugins.indexOf("linux_dmesg"));
+        }
+    }//GEN-LAST:event_kernelDebugBufferActionPerformed
+
+    private void dentryCacheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dentryCacheActionPerformed
+        // TODO add your handling code here:
+        if (dentryCache.isSelected()) {
+
+            plugins.add("linux_dentry_cache");
+        }
+        else if(!dentryCache.isSelected()){
+            //line to remove plugin from ArrayList if box not selected
+            plugins.remove(plugins.indexOf("linux_dentry_cache"));
+        }
+    }//GEN-LAST:event_dentryCacheActionPerformed
+
+    private void checkSyscallArmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkSyscallArmActionPerformed
+        // TODO add your handling code here:
+        if (checkSyscallArm.isSelected()) {
+
+            plugins.add("linux_check_syscall_arm");
+        }
+        else if(!checkSyscallArm.isSelected()){
+            //line to remove plugin from ArrayList if box not selected
+            plugins.remove(plugins.indexOf("linux_check_syscall_arm"));
+        }
+    }//GEN-LAST:event_checkSyscallArmActionPerformed
+
+    private void checkSyscallActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkSyscallActionPerformed
+        // TODO add your handling code here:
+        if (checkSyscall.isSelected()) {
+
+            plugins.add("linux_check_syscall");
+        }
+        else if(!checkSyscall.isSelected()){
+            //line to remove plugin from ArrayList if box not selected
+            plugins.remove(plugins.indexOf("linux_check_syscall"));
+        }
+    }//GEN-LAST:event_checkSyscallActionPerformed
+
+    private void checkModulesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkModulesActionPerformed
+        // TODO add your handling code here:
+        if (checkModules.isSelected()) {
+
+            plugins.add("linux_check_modules");
+        }
+        else if(!checkModules.isSelected()){
+            //line to remove plugin from ArrayList if box not selected
+            plugins.remove(plugins.indexOf("linux_check_modules"));
+        }
+    }//GEN-LAST:event_checkModulesActionPerformed
+
+    private void checkEvtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkEvtActionPerformed
+        // TODO add your handling code here:
+        if (checkEvt.isSelected()) {
+
+            plugins.add("linux_check_evt_arm");
+        }
+        else if(!checkEvt.isSelected()){
+            //line to remove plugin from ArrayList if box not selected
+            plugins.remove(plugins.indexOf("linux_check_evt_arm"));
+        }
+    }//GEN-LAST:event_checkEvtActionPerformed
+
+    private void checkCredsStructActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkCredsStructActionPerformed
+        // TODO add your handling code here:
+        //line to add plugin to ArrayList if box selected
+        if (checkCredsStruct.isSelected()) {
+
+            plugins.add("linux_check_creds");
+        }
+        else if(!checkCredsStruct.isSelected()){
+            //line to remove plugin from ArrayList if box not selected
+            plugins.remove(plugins.indexOf("linux_check_creds"));
+        }
+    }//GEN-LAST:event_checkCredsStructActionPerformed
+
+    private void checkAfInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkAfInfoActionPerformed
+        // TODO add your handling code here:
+        //line to add plugin to ArrayList if box selected
+        if (checkAfInfo.isSelected()) {
+
+            plugins.add("linux_check_afinfo");
+        }
+        else if(!checkAfInfo.isSelected()){
+            //line to remove plugin from ArrayList if box not selected
+            plugins.remove(plugins.indexOf("linux_check_afinfo"));
+        }
+    }//GEN-LAST:event_checkAfInfoActionPerformed
+
+    private void bashHashTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bashHashTableActionPerformed
+        // TODO add your handling code here:
+        if (bashHashTable.isSelected()) {
+
+            plugins.add("linux_bash_hash");
+        }
+        else if(!bashHashTable.isSelected()){
+            //line to remove plugin to ArrayList if box selected
+            plugins.remove(plugins.indexOf("linux_bash_hash"));
+        }
+    }//GEN-LAST:event_bashHashTableActionPerformed
+
+    private void bashEnvVarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bashEnvVarActionPerformed
+        // TODO add your handling code here:
+        if (bashEnvVar.isSelected()) {
+
+            plugins.add("linux_bash_env");
+        }
+        else if(!bashEnvVar.isSelected()){
+            //line to remove plugin to ArrayList if box selected
+            plugins.remove(plugins.indexOf("linux_bash_env"));
+        }
+    }//GEN-LAST:event_bashEnvVarActionPerformed
+
+    private void bashHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bashHistoryActionPerformed
+        // TODO add your handling code here:
+        if (bashHistory.isSelected()) {
+
+            plugins.add("linux_bash");
+        }
+        else if(!bashHistory.isSelected()){
+            //line to remove plugin to ArrayList if box selected
+            plugins.remove(plugins.indexOf("linux_bash"));
+        }
+    }//GEN-LAST:event_bashHistoryActionPerformed
+
+    private void linuxBannerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_linuxBannerActionPerformed
+        // TODO add your handling code here:
+        if (linuxBanner.isSelected()) {
+
+            plugins.add("linux_banner");
+        }
+        else if(!linuxBanner.isSelected()){
+            //line to remove plugin to ArrayList if box selected
+            plugins.remove(plugins.indexOf("linux_banner"));
+        }
+    }//GEN-LAST:event_linuxBannerActionPerformed
+
+    private void arpTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_arpTableActionPerformed
+        // TODO add your handling code here:
+        if (arpTable.isSelected()) {
+
+            plugins.add("linux_arp");
+        }
+        else if(!arpTable.isSelected()){
+            //line to remove plugin to ArrayList if box selected
+            plugins.remove(plugins.indexOf("linux_arp"));
+        }
+    }//GEN-LAST:event_arpTableActionPerformed
+
+    private void limeInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limeInfoActionPerformed
+        // TODO add your handling code here:
+        if (limeInfo.isSelected()) {
+
+            plugins.add("limeinfo");
+        }
+        else if(!limeInfo.isSelected()){
+            //line to remove plugin to ArrayList if box selected
+            plugins.remove(plugins.indexOf("limeinfo"));
+        }
+    }//GEN-LAST:event_limeInfoActionPerformed
+
+    private void pslistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pslistActionPerformed
+        // TODO add your handling code here:
+        if (pslist.isSelected()) {
+            //line to add plugin to ArrayList if box selected
+            plugins.add("linux_pslist");
+        }
+        else if(!pslist.isSelected()){
+            //line to remove plugin to ArrayList if box selected
+            plugins.remove(plugins.indexOf("linux_pslist"));
+        }
+
+    }//GEN-LAST:event_pslistActionPerformed
+
+    //Set Volatility Plugins list
+    private void pstreeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pstreeActionPerformed
+        // TODO add your handling code here:
+        //line to add plugin to ArrayList if box selected
+        if (pstree.isSelected()) {
+
+            plugins.add("linux_pstree");
+
+        }
+        else if(!pstree.isSelected()){
+            //line to remove plugin from ArrayList if box not selected
+            plugins.remove(plugins.indexOf("linux_pstree"));
+
+        }
+    }//GEN-LAST:event_pstreeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1251,13 +1322,24 @@ public class AndroidPluginSetup extends javax.swing.JDialog {
     private javax.swing.JCheckBox ifconfigComm;
     private javax.swing.JCheckBox iomemComm;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JSeparator jSeparator7;
     private javax.swing.JCheckBox kernelDebugBuffer;
     private javax.swing.JCheckBox keyboardNotifiers;
     private javax.swing.JCheckBox ldrModules;
