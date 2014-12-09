@@ -137,7 +137,33 @@ public class VfModuleSettingsPanel extends IngestModuleIngestJobSettingsPanel {
             settings.setVolPlugins(aps.plugins);
             System.out.println("SETTINGS PANEL "+aps.plugins.toString());
     }//GEN-LAST:event_configurePluginsActionPerformed
-
+            //open window for Windows plugins
+        else if ("Windows".equals(settings.opSystem())) {
+            
+            WindowsPluginSetup wps = new WindowsPluginSetup();
+            
+            wps.setVisible(true);
+           
+                
+        }
+        //open window for Linux plugins
+        else if ("Linux".equals(settings.opSystem())) {
+            
+            LinuxPluginSetup lps = new LinuxPluginSetup();
+            
+            lps.setVisible(true);
+           
+            
+        }
+        //open window for MacOS plugins
+        else if ("MacOS".equals(settings.opSystem())) {
+            
+            MacPluginSetup mps = new MacPluginSetup();
+            
+            mps.setVisible(true);
+           
+            
+        }
     }
 
 
