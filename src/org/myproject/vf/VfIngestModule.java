@@ -141,7 +141,7 @@ public class VfIngestModule implements FileIngestModule {
             //if job is cancelled by user
             if (this.context.isJobCancelled() == true) {
 
-                System.out.println("CANCELED");
+                //System.out.println("CANCELED");
                 return IngestModule.ProcessResult.OK;
 
             }
