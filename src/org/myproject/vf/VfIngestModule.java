@@ -56,7 +56,7 @@ public class VfIngestModule implements FileIngestModule {
         jobId = context.getJobId();
 
         //testing line
-        System.out.print("\nROOT OUTPUT DIR PATH " + this.rootOutputDirPath.toString());
+        //System.out.print("\nROOT OUTPUT DIR PATH " + this.rootOutputDirPath.toString());
 
     }
 
