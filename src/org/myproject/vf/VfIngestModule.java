@@ -148,13 +148,14 @@ public class VfIngestModule implements FileIngestModule {
 
             //get current plugin to run
             String volPlugin = settings.getVolPlugins().get(i).toString();
-            System.out.println("VOL PLUGIN " + volPlugin + i);
+            System.out.println("VOL PLUGIN " + volPlugin + " " +i);
+            System.out.println("VNUMBER PLUGINS " + numberOfPlugins);
 
             ProcessBuilder pb = new ProcessBuilder("python", "\"" + executableFile + "\"",
                     volProfile, volInFile + pathToImage, volOutFile + outputDirPath + "\\" + imageNameWOExt + "_" + volPlugin + dateString + ".txt", volPlugin);
 
             // write error logfile to .txt file in the 
-            File log = new File(outputDirPath.toString(), "VFprocessErrorLog_" + volPlugin + ".txt");
+            File log = new File(outputDirPath.toString(), "VolatilityFramework_ErrorLog_" + volPlugin + ".txt");
             pb.redirectErrorStream(true);
             pb.redirectOutput(ProcessBuilder.Redirect.appendTo(log));
 
@@ -226,7 +227,7 @@ public class VfIngestModule implements FileIngestModule {
                 Exceptions.printStackTrace(ex);
             }
 
-            return IngestModule.ProcessResult.OK;
+          
 
         } //end of for loop
 
